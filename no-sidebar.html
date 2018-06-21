@@ -39,10 +39,10 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index.html">Homepage</a></li>
-						<li><a href="left-sidebar.html">Next Talk</a></li>
-						<!-- <li><a href="right-sidebar.html">Organizers</a></li> -->
-						<li><a href="no-sidebar.html">Inquiries</a></li>
+						<li><a href="index.html"><b> <font size="5" color="white"> Homepage </font></b></a></li>
+						<li><a href="left-sidebar.html"><b> <font size="5" color="white">Next Talk </font></b></a></li>
+						<li><a href="right-sidebar.html"><b> <font size="5" color="white">Previous Talks</font></b></a></li>
+						<li class="active"><a href="no-sidebar.html"><b> <font size="5" color="white">Inquiries</font></b></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -92,17 +92,24 @@
 										<!--<span class="byline">Integer sit amet pede vel arcu aliquet pretium</span>-->
 									</header>
 									<!--<a href="#" class="image full"><img src="images/pic07.jpg" alt="" /></a>-->
-									<form action="mailto:jcarlos@cimat.mx" method="post" enctype="text/plain">
+									<form action="send.php" method="post" name="contacto" id="contacto" enctype="text/plain">
 										<p> <h3> Name: </h3>
-											<input type="text" name="Name" size="20" maxlength="50">
+											<input type="text" name="name" size="30" maxlength="50">
 
-										<p> <h3> e-mail: </h3>
-											<input type="text" name="e-mail" size="20" maxlength="50">
+										<p> <h3> E-mail: </h3>
+											<input type="text" name="email" size="30" maxlength="50">
 
-										<p> <h3> Inquiries: </h3>
-											<textarea type="text" name="Inquiries" cols="30" row="50"></textarea>
+										<p> <h3> Subject: </h3>
+											<input type="text" name="subject" size="30" maxlength="50">
 
-										<p> <input type="submit" value="Submit">
+										<p> <h3> Message: </h3>
+											<textarea type="text" name="message" cols="30" row="50"></textarea>
+
+										<p> <h3> Would you like to join the seminar live in streaming? </h3>
+											<input type="radio" name="join" value="yes" checked> Yes<br>
+											<input type="radio" name="join" value="no"> No
+
+										<p><br> <input type="submit" value="Submit">
 									</form>
 								</section>
 							</div>
