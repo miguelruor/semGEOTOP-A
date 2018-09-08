@@ -23,6 +23,30 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<style>
+		.collapsible {
+    		background-color: #d5d9d9;
+    		color: #4c4c4c;
+    		cursor: pointer;
+    		padding: 18px;
+    		width: 100%;
+    		border: none;
+    		text-align: justify;
+    		outline: none;
+    		font-size: 15px;
+		}
+
+		.active, .collapsible:hover {
+		}
+
+		.content {
+    		padding: 0 18px;
+			max-height: 0;
+  			overflow: hidden;
+  			transition: max-height 0.2s ease-out;
+  			background-color: #f1f1f1;
+		}
+		</style>
 	</head>
 	<body>
 
@@ -91,24 +115,54 @@
 								<h2>GEOTOP-A SEMINAR SERIES</h2>
 								<span class="byline">Previous Talks</span>
 							</header>
+							<hr/>
 							<!--<a href="#" class="image full"><img src="images/pic07.jpg" alt="" /></a>-->
-							<b><font size="3" color=#424949>Speaker: De Witt L. Sumners</font></b><br>
-							<b><font size="3" color=#424949>Title: DNA Topology</font></b><br>
-							<b><font size="3" color=#424949>Kerwords: DNA, topoisomerase, site-specific recombination, knots, links, tangle model, supercoiling, viral capsids</font></b><br>
-							<b><font size="3" color=#424949>Date: August 17, 2018</font></b><br>
-							<p><h3>Abstract: </h3>
-							<p align="justify">  Cellular DNA is a long, thread-like molecule with remarkably complex topology.  Enzymes that manipulate the geometry
-								and topology of cellular DNA perform many vital cellular processes (including segregation of daughter chromosomes, gene
-								regulation, DNA repair, and generation of antibody diversity).  Some enzymes pass DNA through itself via enzyme-bridged
-								transient breaks in the DNA; other enzymes break the DNA apart and reconnect it to different ends.  In the topological
-								approach to enzymology, circular DNA is incubated with an enzyme, producing an enzyme signature in the form of DNA knots
-								and links. By observing the changes in DNA geometry (supercoiling) and topology (knotting and linking) due to enzyme action,
-								the enzyme binding and mechanism can often be characterized. This talk will discuss topological models for DNA strand passage
-								and exchange, including the analysis of site-specific recombination experiments on circular DNA and the analysis of packing
-								geometry of DNA in viral capsids. </p>
+							<b><font size="3" color=#424949><b>Speaker:</b> De Witt L. Sumners</font></b><br>
+							<b><font size="3" color=#424949><b>Title:</b> DNA Topology</font></b><br>
+							<b><font size="3" color=#424949><b>Keywords:</b> DNA, topoisomerase, site-specific recombination, knots, links, tangle model, supercoiling, viral capsids</font></b><br>
+							<b><font size="3" color=#424949><b>Date:</b> August 17, 2018</font></b><br>
+
+							<button class="collapsible"><b>Abstract</b></button>
+							<div class="content">
+								<p align="justify"><br>	Cellular DNA is a long, thread-like molecule with remarkably complex topology.  Enzymes that manipulate the geometry
+									and topology of cellular DNA perform many vital cellular processes (including segregation of daughter chromosomes, gene
+									regulation, DNA repair, and generation of antibody diversity).  Some enzymes pass DNA through itself via enzyme-bridged
+									transient breaks in the DNA; other enzymes break the DNA apart and reconnect it to different ends.  In the topological
+									approach to enzymology, circular DNA is incubated with an enzyme, producing an enzyme signature in the form of DNA knots
+									and links. By observing the changes in DNA geometry (supercoiling) and topology (knotting and linking) due to enzyme action,
+									the enzyme binding and mechanism can often be characterized. This talk will discuss topological models for DNA strand passage
+									and exchange, including the analysis of site-specific recombination experiments on circular DNA and the analysis of packing
+									geometry of DNA in viral capsids. </p>
+							</div><hr>
+							<button class="collapsible"><b>Video</b></button>
+							<div class="content">
+								<p align="center"><br><iframe width="560" height="315" src="https://www.youtube.com/embed/574upkq0wDE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> </p>
+							</div>
 							<br>
-							<p align="center"> <iframe width="560" height="315" src="https://www.youtube.com/embed/574upkq0wDE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> </p>
-							</section>
+
+							<hr/>
+
+							<b><font size="3" color=#424949><b>Speaker:</b> Rafael Herrera</font></b><br>
+							<b><font size="3" color=#424949><b>Title:</b> A brief introduction to Discrete Exterior Calculus</font></b><br>
+							<b><font size="3" color=#424949><b>Keywords:</b> differential forms, Hodge star operator, simplicial complex, boundary operator</font></b><br>
+							<b><font size="3" color=#424949><b>Date:</b>September 7, 2018</font></b><br>
+
+							<button class="collapsible"><b>Abstract</b></button>
+							<div class="content">
+								<p align="justify"><br>Discrete Exterior Calculus (DEC) is a relatively new method for solving partial differential equations
+									numerically. The central idea of the method is to develop a discrete version of Exterior Differential
+									Calculus. In this talk, we will briefly review the various operators of Exterior Differential Calculus
+									and their discrete versions. We will then focus our attention in 2D DEC, presenting a geometric
+									interpretation of DEC as well as numerical comparisons with the Finite Element Method in order to show
+									DEC’s competitive performance. </p>
+							</div><hr>
+							<button class="collapsible"><b>Video</b></button>
+							<div class="content">
+								<p align="center"><br>Video in a short time. </p>
+							</div>
+							<br>
+
+						</section>
 					</div>
 
 				</div>
@@ -192,6 +246,23 @@
 				Seminar GEOTOP-A
 			</div>
 		</div>
+
+		<script>
+			var coll = document.getElementsByClassName("collapsible");
+			var i;
+
+			for (i = 0; i < coll.length; i++) {
+  				coll[i].addEventListener("click", function() {
+    				this.classList.toggle("active");
+    				var content = this.nextElementSibling;
+    				if (content.style.maxHeight) {
+      					content.style.maxHeight = null;
+    				} else {
+      					content.style.maxHeight = content.scrollHeight + "px";
+    				}
+  					});
+			}
+		</script>
 
 	</body>
 </html>
