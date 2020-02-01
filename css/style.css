@@ -256,6 +256,33 @@
 			border-top: none;
 		}
 
+		#platicas ul li{
+			float:left;
+		}
+
+		#platicas a{
+			text-decoration: none;
+			display: block;
+			padding: 12px 26px;
+			font-size: 23px;
+		}
+
+		#platicas{
+			display: inline-block;
+			background-color: #d5d9d9;
+			width: 55%;
+			height: 50px;
+		}
+
+		.barra{
+			padding: 11px 0 0 0;
+
+		}
+
+		#platicas a:hover{
+			background: #BEBFBF;
+
+		}
 
 	/* Buttons */
 
