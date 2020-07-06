@@ -262,15 +262,15 @@
 
 		#platicas a{
 			text-decoration: none;
-			display: block;
+			display: inline-block;
 			padding: 12px 26px;
-			font-size: 15px;
+			font-size: 22px;
 		}
 
 		#platicas{
-			display: inline-block;
+			display: block;
 			background-color: #d5d9d9;
-			width: 55%;
+			width: 70%; /* Aquí controlo el tamaño de lo ancho del menú */
 			height: 50px;
 		}
 
