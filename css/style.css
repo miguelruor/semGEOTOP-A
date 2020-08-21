@@ -270,7 +270,7 @@
 		#platicas{
 			display: block;
 			background-color: #d5d9d9;
-			width: 60%; /* Aquí controlo el tamaño de lo ancho del menú */
+			width: 50%; /* Aquí controlo el tamaño de lo ancho del menú */
 			height: 50px;
 		}
 
