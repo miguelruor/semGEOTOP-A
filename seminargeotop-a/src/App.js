@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Header
-        color="transparent"
+        color="blue"
         //routes={dashboardRoutes}
         brand="Material Kit React"
         rightLinks={<HeaderLinks />}
@@ -17,7 +17,7 @@ function App() {
           height: 400,
           color: "white"
         }}
-        {...rest}
+        //{...rest}
       />
     </div>
   );
