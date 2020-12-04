@@ -9,7 +9,8 @@ import {
   roseColor,
   transition,
   boxShadow,
-  drawerWidth
+  drawerWidth,
+  blueColor
 } from "../../../../assets/jss/material-kit-react.js";
 
 const headerStyle = {
@@ -100,6 +101,12 @@ const headerStyle = {
   },
   rose: {
     backgroundColor: roseColor,
+    color: "#FFFFFF",
+    boxShadow:
+      "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(233, 30, 99, 0.46)"
+  },
+  blue: {
+    backgroundColor: blueColor,
     color: "#FFFFFF",
     boxShadow:
       "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(233, 30, 99, 0.46)"
