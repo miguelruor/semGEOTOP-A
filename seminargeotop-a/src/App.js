@@ -10,7 +10,7 @@ function App() {
       <Header
         color="blue"
         //routes={dashboardRoutes}
-        brand="Material Kit React"
+        brand="Seminar GEOTOP-A"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
