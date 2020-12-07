@@ -52,6 +52,9 @@ import TeamSection from "./views/LandingPage/Sections/TeamSection.js";
 import WorkSection from "./views/LandingPage/Sections/WorkSection.js";
 import Carousel from "./views/Components/Sections/SectionCarousel.js";
 
+// Background Image
+import backgroundImageHome from './assets/img/images/img1.jpg';
+
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
@@ -73,7 +76,7 @@ export default function LandingPage(props) {
         }}
         //{...rest}
       />
-      <Parallax filter image={require("./assets/img/images/img1.jpg")}>
+      <Parallax filter image={backgroundImageHome}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
