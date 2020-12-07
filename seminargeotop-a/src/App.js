@@ -48,9 +48,9 @@ import Parallax from "./components/Parallax/Parallax.js";
 import styles from "./assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
-//import ProductSection from "./views/LandingPage/Sections/ProductSection.js";
-//import TeamSection from "./views/LandingPage/Sections/TeamSection.js";
-//import WorkSection from "./views/LandingPage/Sections/WorkSection.js";
+import ProductSection from "./views/LandingPage/Sections/ProductSection.js";
+import TeamSection from "./views/LandingPage/Sections/TeamSection.js";
+import WorkSection from "./views/LandingPage/Sections/WorkSection.js";
 
 const dashboardRoutes = [];
 
@@ -96,19 +96,18 @@ export default function LandingPage(props) {
           </GridContainer>
         </div>
       </Parallax>
+
+      <div className={classNames(classes.main, classes.mainRaised)}>
+        <div className={classes.container}>
+          <ProductSection />
+          <TeamSection />
+          <WorkSection />
+        </div>
+      </div>
       
       <Footer />
     </div>
   );
 }
 
-/*
-<div className={classNames(classes.main, classes.mainRaised)}>
-  <div className={classes.container}>
-    <ProductSection />
-    <TeamSection />
-    <WorkSection />
-  </div>
-</div>
 
-*/
