@@ -15,7 +15,7 @@ import image1 from "../../../assets/img/bg.jpg";
 import image2 from "../../../assets/img/bg2.jpg";
 import image3 from "../../../assets/img/bg3.jpg";
 
-import styles from "../../../assets/jss/material-kit-react/views/componentsSections/carouselStyle.js";
+import styles from "../../../assets/scss/plugins/_plugin-react-slick.scss";
 
 const useStyles = makeStyles(styles);
 
@@ -30,10 +30,10 @@ export default function SectionCarousel() {
     autoplay: false
   };
   return (
-    <div className={classes.section}>
+    <div className={classes.section} >
       <div className={classes.container}>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={8} className={classes.marginAuto}>
+        <GridContainer style={localStyle.prueba}>
+          <GridItem xs={12} sm={12} md={8} className={classes.marginAuto} >
             <Card carousel>
               <Carousel {...settings}>
                 <div>
@@ -75,3 +75,11 @@ export default function SectionCarousel() {
     </div>
   );
 }
+
+const localStyle={
+  prueba: {
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',  
+  },
+};

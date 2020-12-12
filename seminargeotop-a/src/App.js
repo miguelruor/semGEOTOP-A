@@ -50,7 +50,7 @@ import styles from "./assets/jss/material-kit-react/views/landingPage.js";
 // Sections for this page
 import TeamSection from "./views/LandingPage/Sections/TeamSection.js";
 import WorkSection from "./views/LandingPage/Sections/WorkSection.js";
-import Carousel from "./views/Components/Sections/SectionCarousel.js";
+import SectionCarousel from "./views/Components/Sections/SectionCarousel.js";
 
 // Background Image
 import backgroundImageHome from './assets/img/images/img1.jpg';
@@ -102,7 +102,7 @@ export default function LandingPage(props) {
 
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <Carousel />
+          <SectionCarousel />
           <TeamSection />
           <WorkSection />
         </div>
