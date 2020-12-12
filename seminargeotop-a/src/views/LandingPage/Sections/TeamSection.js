@@ -16,9 +16,11 @@ import CardFooter from "../../../components/Card/CardFooter.js";
 
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 
-import team1 from "../../../assets/img/faces/avatar.jpg";
-import team2 from "../../../assets/img/faces/christian.jpg";
-import team3 from "../../../assets/img/faces/kendall.jpg";
+import team1 from "../../../assets/img/faces/org1.jpg";
+import team2 from "../../../assets/img/faces/org2.jpg";
+import team3 from "../../../assets/img/faces/org3.jpg";
+import team4 from "../../../assets/img/faces/org4.jpg";
+import team5 from "../../../assets/img/faces/org5.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -55,7 +57,7 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={team3} alt="..." className={imageClasses} />
+                <img src={team2} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
                 Renzo L. Ricca
@@ -91,7 +93,7 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={team2} alt="..." className={imageClasses} />
+                <img src={team4} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
                 Kathryn Hess
@@ -109,7 +111,7 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={team3} alt="..." className={imageClasses} />
+                <img src={team5} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
                 Neza Mramor-Kosta
