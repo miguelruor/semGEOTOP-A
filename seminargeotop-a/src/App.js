@@ -54,6 +54,7 @@ import SectionCarousel from "./views/Components/Sections/SectionCarousel.js";
 
 // Background Image
 import backgroundImageHome from './assets/img/images/img1.jpg';
+import FutureTalksSection from './views/LandingPage/Sections/FutureTalksSection.js';
 
 const dashboardRoutes = [];
 
@@ -104,7 +105,7 @@ export default function LandingPage(props) {
         <SectionCarousel />
         <div className={classes.container}>
           <TeamSection />
-          <WorkSection />
+          <FutureTalksSection />
         </div>
       </div>
       
