@@ -31,7 +31,7 @@ export default function HeaderLinks(props) {
         type="button" 
         color="transparent"  
         round>
-          Homepage
+          <a href= "http://seminargeotop-a.com/index.html">Homepage</a> 
         </Button>
       </ListItem>
 
@@ -40,7 +40,7 @@ export default function HeaderLinks(props) {
         type = "button"
         color="transparent"
         round>
-          Next Talks
+          <a href="http://seminargeotop-a.com/left-sidebar.html">Next Talks</a>
         </Button>
       </ListItem>
 
@@ -49,7 +49,7 @@ export default function HeaderLinks(props) {
         type = "button"
         color="transparent"
         round>
-          Previous Talks
+          <a href="http://seminargeotop-a.com/right-sidebar.html">Previous Talks</a>
         </Button>
       </ListItem>
 
@@ -58,7 +58,7 @@ export default function HeaderLinks(props) {
         type = "button"
         color="transparent"
         round>
-          Subscribe
+          <a>Subscribe</a>
         </Button>
       </ListItem>
 
@@ -67,7 +67,7 @@ export default function HeaderLinks(props) {
         type = "button"
         color="transparent"
         round>
-          About
+          <a>About</a>
         </Button>
       </ListItem>
 
