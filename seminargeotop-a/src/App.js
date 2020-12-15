@@ -26,6 +26,7 @@ import SectionCarousel from "./views/Components/Sections/SectionCarousel.js";
 // Background Image
 import backgroundImageHome from './assets/img/images/img1.jpg';
 import FutureTalksSection from './views/LandingPage/Sections/FutureTalksSection.js';
+import StreamingTimeSection from './views/LandingPage/Sections/StreamingTimeSection.js';
 
 const dashboardRoutes = [];
 
@@ -78,6 +79,7 @@ export default function LandingPage(props) {
           <TeamSection />
           <div><h1>OK</h1></div>
           <FutureTalksSection />
+          <StreamingTimeSection />
         </div>
       </div>
       
