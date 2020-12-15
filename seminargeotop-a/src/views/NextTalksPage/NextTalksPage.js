@@ -17,16 +17,16 @@ import Parallax from "../../components/Parallax/Parallax.js";
 
 import styles from "../../assets/jss/material-kit-react/views/landingPage.js";
 
-import banner from "../../assets/img/landing-bg.jpg"
-
 // Sections for this page
-
+import ProductSection from "../../views/LandingPage/Sections/ProductSection.js";
+import TeamSection from "../../views/LandingPage/Sections/TeamSection.js";
+import WorkSection from "../../views/LandingPage/Sections/WorkSection.js";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function NextTalksPage(props) {
+export default function LandingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -43,7 +43,7 @@ export default function NextTalksPage(props) {
         }}
         {...rest}
       />
-      <Parallax filter image={require(banner)}>
+      <Parallax>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
@@ -71,7 +71,9 @@ export default function NextTalksPage(props) {
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-            <p className = {classes.description}>Hola</p>
+          <ProductSection />
+          <TeamSection />
+          <WorkSection />
         </div>
       </div>
       <Footer />
