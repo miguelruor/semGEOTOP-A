@@ -29,7 +29,7 @@ export default function StreamingTime(){
     const classes = useStyles();
 
     return(
-        <GridContainer justify = "left">
+        <GridContainer style={{paddingBottom: 100}} justify = "left">
             <GridItem>
                 <h1 className={classes.title}>Streaming time</h1>
             </GridItem>
@@ -70,16 +70,5 @@ export default function StreamingTime(){
                 </GridContainer>
             </GridItem>
         </GridContainer>
-            
-        /*<div>
-            <span><AnalogClock width={WIDTH} theme={Themes.light} showSmallTicks={false} /></span>
-            <span><AnalogClock width={WIDTH} theme={Themes.dark} /></span>
-            <span><AnalogClock width={WIDTH} theme={Themes.aqua} /></span>
-            <span><AnalogClock width={WIDTH} theme={Themes.lime} /></span>
-            <span><AnalogClock width={WIDTH} theme={Themes.sherbert} /></span>
-            <span><AnalogClock width={WIDTH} theme={Themes.navy} /></span>
-            <span><AnalogClock width={WIDTH} theme={Themes.light} /></span>
-            <span><AnalogClock width={WIDTH} theme={customTheme} showSmallTicks={false} /></span>
-        </div>*/
     );
 }
