@@ -28,8 +28,7 @@ import backgroundImageHome from '../../assets/img/images/img1.jpg';
 import FutureTalksSection from '../../views/LandingPage/Sections/FutureTalksSection.js';
 import StreamingTimeSection from '../../views/LandingPage/Sections/StreamingTimeSection.js';
 
-import {db} from '../../ConfigFirebase';
-
+//import {db} from '../../ConfigFirebase';
 
 const dashboardRoutes = [];
 
@@ -40,7 +39,7 @@ export default function HomePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
-  useEffect(() => {
+  /*useEffect(() => {
     db.collection("talks").where("title","==","DNA Topology")
         .get()
         .then(function(querySnapshot) {
@@ -51,7 +50,7 @@ export default function HomePage(props) {
         .catch(function(error) {
             alert("No se pudo cargar los datos");
         });
-  },[]);
+  },[]);*/
 
   return (
     <div>
