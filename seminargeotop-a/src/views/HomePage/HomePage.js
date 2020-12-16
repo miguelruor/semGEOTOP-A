@@ -45,6 +45,7 @@ export default function HomePage(props) {
         .get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
+              alert('pinche randy cabron');
             });
         })
         .catch(function(error) {
