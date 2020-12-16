@@ -14,7 +14,7 @@ export default function App(props) {
     <Router history={hist}>
       <Switch>
         <Route path="/" component={HomePage} />
-        <Route path="/NextTalks" component={NextTalksPage} />
+        <Route path="/algo" component={NextTalksPage} />
       </Switch>
     </Router>
   );
