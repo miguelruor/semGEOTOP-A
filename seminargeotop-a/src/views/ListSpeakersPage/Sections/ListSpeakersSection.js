@@ -30,19 +30,18 @@ export default function ListSpeakersSection(){
                         surname: doc.data().surname,
                         middle_inital: doc.data().middle_inital,
                         talks: doc.data().talks,
-                        years: []
+                        years: [],
                     });
 
                     let speakers_len = speakers.length
                     let talks_len = speakers[speakers_len-1].talks.length
 
                     for(let i=0; i<talks_len; i++){
-                        db.collection("talks").doc(speakers[speakers_len-1].talks[i])
+                        db.collection("talks").doc(speakers[speakers_len-1].talks[i].toString())
                         .get()
-                        .then(function(querySnapshot){
-                            querySnapshot.forEach(function(doc){
-                                speakers[speakers_len-1].years.push(doc.data().date.getFullYear())
-                            });
+                        .then(function(doc){
+                            speakers[speakers_len-1].years
+                            .push(doc.data().date.toDate().getFullYear());
                         })
                         .catch(function(error){
                             alert("Cannot load some talk");
@@ -55,6 +54,16 @@ export default function ListSpeakersSection(){
                 alert("Cannot load speakers");
             });
       },[]);
+
+    speakers.sort(function(a,b){
+        if(a.surname > b.surname){
+            return 1;
+        }
+        if(a.surname < b.surname){
+            return -1;
+        }
+        return 0;
+    });
 
     const Component = speakers.map(speaker => 
         <>
