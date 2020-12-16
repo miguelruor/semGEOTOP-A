@@ -12,7 +12,10 @@ logs
 node_modules
 bower_components
 material-kit-react-master
+<<<<<<< HEAD
 .eslintcache
+=======
+>>>>>>> ab1e08d2f8fc0a60751cd0d9490f3158780a492c
 
 *.sublime*
 
