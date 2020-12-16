@@ -149,6 +149,14 @@ const navPillsStyle = theme => ({
     "&,& *": {
       letterSpacing: "normal"
     }
+  },
+  tabContent: {
+    textAlign: 'center'
+  },
+  button: {
+    width:'50%',
+    marginLeft: "auto",
+    marginRight: "auto" 
   }
 });
 

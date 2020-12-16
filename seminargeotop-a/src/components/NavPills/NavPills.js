@@ -18,6 +18,8 @@ import styles from "../../assets/jss/material-kit-react/components/navPillsStyle
 
 import Card from "../../components/Card/Card.js";
 import CardBody from "../../components/Card/CardBody.js"
+import Button from "../../components/CustomButtons/Button.js";
+
 
 import imagenPrueba from "../../assets/img/faces/avatar.jpg";
 
@@ -42,7 +44,7 @@ export default function NavPills(props) {
 
   const imageClasses = classNames(
     classes.imgRaised,
-    classes.imgRoundedCircle,
+    classes.imgRounded,
     classes.imgFluid
   );
   const tabButtons = (
@@ -92,41 +94,106 @@ export default function NavPills(props) {
           {tabs.map((prop, key) => {
             return (
               <div className={classes.tabContent} key={key}>
-                <GridContainer justify='center'>
+                <GridContainer >
                   <GridItem xs={12} sm={6} md={4} >
                     <Card plain>
+                      <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
+                        <small className={classes.smallTitle} >Fecha</small>
+                      </h4>
                       <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                         <img src={imagenPrueba} alt="..." className={imageClasses} />
                       </GridItem>
                       <h4 className={classes.cardTitle}>
-                        José-Carlos Gómez-Larrañaga
+                        Titulo de la plática
                         <br />
-                        <small className={classes.smallTitle}>CIMAT Mexico</small>
+                        <small className={classes.smallTitle}>Speaker</small>
                       </h4>
-                      <CardBody>
-                        <p className={classes.description}>
-                          You can write here details about one of your team members. You
-                          can give more details about what they do.
-                        </p>
-                      </CardBody>
+                      <Button round color='primary' className={classes.button}>Round</Button>  
+                    </Card>
+                  </GridItem>
+                  <GridItem xs={12} sm={6} md={4} >
+                    <Card plain>
+                      <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
+                        <small className={classes.smallTitle} >Fecha</small>
+                      </h4>
+                      <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                        <img src={imagenPrueba} alt="..." className={imageClasses} />
+                      </GridItem>
+                      <h4 className={classes.cardTitle}>
+                        Titulo de la plática
+                        <br />
+                        <small className={classes.smallTitle}>Speaker</small>
+                      </h4>
+                      <Button round color='primary' className={classes.button}>Round</Button>  
                     </Card>
                   </GridItem>
 
-                  <GridItem xs={12} sm={6} md={4} > 
-                    <img src={imagenPrueba}  width="280" height="300"/>
+                  <GridItem xs={12} sm={6} md={4} >
+                    <Card plain>
+                      <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
+                        <small className={classes.smallTitle} >Fecha</small>
+                      </h4>
+                      <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                        <img src={imagenPrueba} alt="..." className={imageClasses} />
+                      </GridItem>
+                      <h4 className={classes.cardTitle}>
+                        Titulo de la plática
+                        <br />
+                        <small className={classes.smallTitle}>Speaker</small>
+                      </h4>
+                      <Button round color='primary' className={classes.button}>Round</Button>  
+                    </Card>
                   </GridItem>
-                  <GridItem xs={12} sm={6} md={4} > 
-                    <img src={imagenPrueba}  width="280" height="300"/>
+                  <GridItem xs={12} sm={6} md={4} >
+                    <Card plain>
+                      <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
+                        <small className={classes.smallTitle} >Fecha</small>
+                      </h4>
+                      <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                        <img src={imagenPrueba} alt="..." className={imageClasses} />
+                      </GridItem>
+                      <h4 className={classes.cardTitle}>
+                        Titulo de la plática
+                        <br />
+                        <small className={classes.smallTitle}>Speaker</small>
+                      </h4>
+                      <Button round color='primary' className={classes.button}>Round</Button>  
+                    </Card>
                   </GridItem>
-                  <GridItem xs={12} sm={6} md={4} > 
-                    <img src={imagenPrueba}  width="280" height="300"/>
+
+                  <GridItem xs={12} sm={6} md={4} >
+                    <Card plain>
+                      <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
+                        <small className={classes.smallTitle} >Fecha</small>
+                      </h4>
+                      <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                        <img src={imagenPrueba} alt="..." className={imageClasses} />
+                      </GridItem>
+                      <h4 className={classes.cardTitle}>
+                        Titulo de la plática
+                        <br />
+                        <small className={classes.smallTitle}>Speaker</small>
+                      </h4>
+                      <Button round color='primary' className={classes.button}>Round</Button>  
+                    </Card>
                   </GridItem>
-                  <GridItem xs={12} sm={6} md={4} > 
-                    <img src={imagenPrueba}  width="280" height="300"/>
+                  <GridItem xs={12} sm={6} md={4} >
+                    <Card plain>
+                      <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
+                        <small className={classes.smallTitle} >Fecha</small>
+                      </h4>
+                      <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                        <img src={imagenPrueba} alt="..." className={imageClasses} />
+                      </GridItem>
+                      <h4 className={classes.cardTitle}>
+                        Titulo de la plática
+                        <br />
+                        <small className={classes.smallTitle}>Speaker</small>
+                      </h4>
+                      <Button round color='primary' className={classes.button}>Round</Button>  
+                    </Card>
                   </GridItem>
-                  <GridItem xs={12} sm={6} md={4} > 
-                    <img src={imagenPrueba}  width="280" height="300"/>
-                  </GridItem>
+
                 </GridContainer>
               </div>
             );
