@@ -16,6 +16,9 @@ import GridItem from "../Grid/GridItem.js" // "../components/Grid/GridItem.js";
 
 import styles from "../../assets/jss/material-kit-react/components/navPillsStyle.js";
 
+import Card from "../../components/Card/Card.js";
+import CardBody from "../../components/Card/CardBody.js"
+
 import imagenPrueba from "../../assets/img/faces/avatar.jpg";
 
 
@@ -36,6 +39,12 @@ export default function NavPills(props) {
     [classes.flexContainer]: true,
     [classes.horizontalDisplay]: horizontal !== undefined
   });
+
+  const imageClasses = classNames(
+    classes.imgRaised,
+    classes.imgRoundedCircle,
+    classes.imgFluid
+  );
   const tabButtons = (
     <Tabs
       classes={{
@@ -83,10 +92,26 @@ export default function NavPills(props) {
           {tabs.map((prop, key) => {
             return (
               <div className={classes.tabContent} key={key}>
-                <GridContainer>
-                  <GridItem xs={12} sm={6} md={4} > 
-                    <img src={imagenPrueba}  width="280" height="300"/>
+                <GridContainer justify='center'>
+                  <GridItem xs={12} sm={6} md={4} >
+                    <Card plain>
+                      <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                        <img src={imagenPrueba} alt="..." className={imageClasses} />
+                      </GridItem>
+                      <h4 className={classes.cardTitle}>
+                        José-Carlos Gómez-Larrañaga
+                        <br />
+                        <small className={classes.smallTitle}>CIMAT Mexico</small>
+                      </h4>
+                      <CardBody>
+                        <p className={classes.description}>
+                          You can write here details about one of your team members. You
+                          can give more details about what they do.
+                        </p>
+                      </CardBody>
+                    </Card>
                   </GridItem>
+
                   <GridItem xs={12} sm={6} md={4} > 
                     <img src={imagenPrueba}  width="280" height="300"/>
                   </GridItem>

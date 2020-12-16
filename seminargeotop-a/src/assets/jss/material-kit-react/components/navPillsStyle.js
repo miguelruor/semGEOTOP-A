@@ -4,10 +4,24 @@ import {
   infoColor,
   successColor,
   warningColor,
-  dangerColor
+  dangerColor,
+  cardTitle,
+  title
 } from "../../material-kit-react.js";
 
+import imagesStyle from "../imagesStyles.js";
+
+
 const navPillsStyle = theme => ({
+  ...imagesStyle,
+  itemGrid: {
+    marginLeft: "auto",
+    marginRight: "auto"
+  },
+  cardTitle,
+  smallTitle: {
+    color: "#6c757d"
+  },
   root: {
     marginTop: "20px",
     paddingLeft: "0",

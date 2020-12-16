@@ -1,6 +1,6 @@
 import '../../App.css';
 
-import React from "react";
+import React, {useEffect} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -28,13 +28,30 @@ import backgroundImageHome from '../../assets/img/images/img1.jpg';
 import FutureTalksSection from '../../views/LandingPage/Sections/FutureTalksSection.js';
 import StreamingTimeSection from '../../views/LandingPage/Sections/StreamingTimeSection.js';
 
+import {db} from '../../ConfigFirebase';
+
+
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
+
 export default function HomePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+
+  useEffect(() => {
+    db.collection("talks").where("title","==","DNA Topology")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+            });
+        })
+        .catch(function(error) {
+            alert("No se pudo cargar los datos");
+        });
+  },[]);
+
   return (
     <div>
       <Header
