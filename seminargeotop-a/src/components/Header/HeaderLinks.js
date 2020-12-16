@@ -71,17 +71,6 @@ export default function HeaderLinks(props) {
           </Button>
         </ListItem>
       </Link>
-
-      <Link to="/About" className={classes.link}>
-        <ListItem className={classes.listItem}>
-          <Button
-          type = "button"
-          color="transparent"
-          round>
-            <a>About</a>
-          </Button>
-        </ListItem>
-      </Link>
     </List>
   );
 }
