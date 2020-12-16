@@ -20,6 +20,8 @@ import Button from "../../components/CustomButtons/Button.js";
 
 import styles from "../../assets/jss/material-kit-react/components/headerLinksStyle.js";
 
+
+
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
@@ -31,25 +33,26 @@ export default function HeaderLinks(props) {
         type="button" 
         color="transparent"  
         round>
-          <a href= "http://seminargeotop-a.com/index.html">Homepage</a> 
+          Homepage 
         </Button>
       </ListItem>
+      <Link to="/next" className={classes.link}>
+        <ListItem className={classes.listItem}>
+            <Button
+              type = "button"
+              color="transparent"
+              round>
+                Next Talks
+            </Button>
+        </ListItem>
+      </Link>  
 
       <ListItem className={classes.listItem}>
         <Button
         type = "button"
         color="transparent"
         round>
-          <a href="http://seminargeotop-a.com/left-sidebar.html">Next Talks</a>
-        </Button>
-      </ListItem>
-
-      <ListItem className={classes.listItem}>
-        <Button
-        type = "button"
-        color="transparent"
-        round>
-          <a href="http://seminargeotop-a.com/right-sidebar.html">Previous Talks</a>
+          Previous Talks
         </Button>
       </ListItem>
 
