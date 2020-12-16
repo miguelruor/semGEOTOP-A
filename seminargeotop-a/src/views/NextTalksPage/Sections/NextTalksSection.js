@@ -15,6 +15,7 @@ import CardBody from "../../../components/Card/CardBody.js";
 import CardFooter from "../../../components/Card/CardFooter.js";
 
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
+import image1 from "../../../assets/img/images/sp40.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -41,15 +42,20 @@ export default function NextTalksSection(){
     ]);
 
     const classes = useStyles();
+    const imageClasses = classNames(
+        classes.imgRaised,
+        classes.imgRoundedCircle,
+        classes.imgFluid
+      );
     return(
         <GridContainer>
             <GridItem xs={12} sm={12} md={12}><h1 className={classes.title}>Next Talks</h1></GridItem>
-            <GridItem xs={12} sm={12} ms={6}>
+            <GridItem xs={12} sm={12} md={6}>
                 <div>
-                    <img src={talks[0].image}></img>
+                    <img src={image1} className={imageClasses}></img>
                 </div>
             </GridItem>
-            <GridItem xs={12} sm={12} ms={6}>
+            <GridItem xs={12} sm={12} md={6}>
                 <GridContainer>
                     {talks.map(talk => (
                         <>
@@ -57,7 +63,7 @@ export default function NextTalksSection(){
                         <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.date}</h4></GridItem>
                         <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.title}</h4></GridItem>
                         <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.abstract}</h4></GridItem>
-                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.keywords}</h4></GridItem>
+                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.keywords.join(", ")}</h4></GridItem>
                         </>
                     ))}
                     
