@@ -28,15 +28,18 @@ export default function HeaderLinks(props) {
   const classes = useStyles();
   return (
     <List className={classes.list}>
-      <ListItem className={classes.listItem}>
-        <Button 
-        type="button" 
-        color="transparent"  
-        round>
-          Homepage 
-        </Button>
-      </ListItem>
-      <Link to="/next" className={classes.link}>
+      <Link to="/" className={classes.link}>
+        <ListItem className={classes.listItem}>
+          <Button 
+          type="button" 
+          color="transparent"  
+          round>
+            Homepage 
+          </Button>
+        </ListItem>
+      </Link>
+
+      <Link to="/NextTalks" className={classes.link}>
         <ListItem className={classes.listItem}>
             <Button
               type = "button"
@@ -47,33 +50,38 @@ export default function HeaderLinks(props) {
         </ListItem>
       </Link>  
 
-      <ListItem className={classes.listItem}>
-        <Button
-        type = "button"
-        color="transparent"
-        round>
-          Previous Talks
-        </Button>
-      </ListItem>
+      <Link to="/PreviousTalks" className={classes.link}>
+        <ListItem className={classes.listItem}>
+          <Button
+          type = "button"
+          color="transparent"
+          round>
+            Previous Talks
+          </Button>
+        </ListItem>
+      </Link>
 
-      <ListItem className={classes.listItem}>
-        <Button
-        type = "button"
-        color="transparent"
-        round>
-          <a>Subscribe</a>
-        </Button>
-      </ListItem>
+      <Link to="/Subscribe" className={classes.link}>
+        <ListItem className={classes.listItem}>
+          <Button
+          type = "button"
+          color="transparent"
+          round>
+            <a>Subscribe</a>
+          </Button>
+        </ListItem>
+      </Link>
 
-      <ListItem className={classes.listItem}>
-        <Button
-        type = "button"
-        color="transparent"
-        round>
-          <a>About</a>
-        </Button>
-      </ListItem>
-
+      <Link to="/About" className={classes.link}>
+        <ListItem className={classes.listItem}>
+          <Button
+          type = "button"
+          color="transparent"
+          round>
+            <a>About</a>
+          </Button>
+        </ListItem>
+      </Link>
     </List>
   );
 }

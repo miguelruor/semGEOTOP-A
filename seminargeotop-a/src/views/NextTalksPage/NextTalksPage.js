@@ -17,10 +17,13 @@ import Parallax from "../../components/Parallax/Parallax.js";
 
 import styles from "../../assets/jss/material-kit-react/views/landingPage.js";
 
+// Backgroud image
+import backgroundImageHome from '../../assets/img/images/img2.jpg';
+
 // Sections for this page
 import ProductSection from "../../views/LandingPage/Sections/ProductSection.js";
 import TeamSection from "../../views/LandingPage/Sections/TeamSection.js";
-import WorkSection from "../../views/LandingPage/Sections/WorkSection.js";
+import NextTalkSection from "./Sections/NextTalksSection.js";
 
 const dashboardRoutes = [];
 
@@ -32,9 +35,9 @@ export default function NextTalksPage(props) {
   return (
     <div>
       <Header
-        color="transparent"
+        color="blue"
         routes={dashboardRoutes}
-        brand="Material Kit React"
+        brand="Seminar GEOTOP-A"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
@@ -43,28 +46,15 @@ export default function NextTalksPage(props) {
         }}
         {...rest}
       />
-      <Parallax>
+      <Parallax filter image={backgroundImageHome}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Your Story Starts With Us.</h1>
+              <h1 className={classes.title}>Next talks</h1>
               <h4>
-                Every landing page needs a small description after the big bold
-                title, that{"'"}s why we added this text here. Add here all the
-                information that can make you or your product create the first
-                impression.
+                Find the information of the next talks.
               </h4>
               <br />
-              <Button
-                color="danger"
-                size="lg"
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-play" />
-                Watch video
-              </Button>
             </GridItem>
           </GridContainer>
         </div>
@@ -73,7 +63,6 @@ export default function NextTalksPage(props) {
         <div className={classes.container}>
           <ProductSection />
           <TeamSection />
-          <WorkSection />
         </div>
       </div>
       <Footer />
