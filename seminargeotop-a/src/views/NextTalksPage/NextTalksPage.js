@@ -60,7 +60,7 @@ export default function NextTalksPage(props) {
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div className={classNames(classes.main, classes.mainRaised)} >
         <div className={classes.container}>
           <NextTalkSection />
           <StreamingTimeSection />

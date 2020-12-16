@@ -45,15 +45,13 @@ export default function NextTalksSection(){
     const imageClasses = classNames(
         classes.imgRaised,
         classes.imgRoundedCircle,
-        classes.imgFluid
+        classes.imgFluid,
       );
     return(
         <GridContainer>
             <GridItem xs={12} sm={12} md={12}><h1 className={classes.title}>Next Talks</h1></GridItem>
-            <GridItem xs={12} sm={12} md={6}>
-                <div>
-                    <img src={image1} className={imageClasses}></img>
-                </div>
+            <GridItem xs={12} sm={12} md={6} className={classes.nextTalk}>
+                    <img src={image1} className={imageClasses}/>
             </GridItem>
             <GridItem xs={12} sm={12} md={6}>
                 <GridContainer>

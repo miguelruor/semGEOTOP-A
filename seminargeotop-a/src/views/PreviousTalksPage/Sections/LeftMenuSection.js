@@ -7,7 +7,7 @@ import GridContainer from "../../../components/Grid/GridContainer.js";
 import GridItem from "../../../components/Grid/GridItem.js";
 import NavPills from "../../../components/NavPills/NavPills.js";
 
-import styles from "../../../assets/jss/material-kit-react/views/landingPage.js";
+import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -17,8 +17,8 @@ export default function LeftMenuSection(){
         <NavPills
             color="rose"
             horizontal={{
-                tabsGrid: { xs: 12, sm: 4, md: 4 },
-                contentGrid: { xs: 12, sm: 8, md: 8 }
+                tabsGrid: { xs: 12, sm: 2, md: 2 },
+                contentGrid: { xs: 12, sm: 10, md: 10 }
             }}
             tabs={[
                 {
@@ -29,11 +29,11 @@ export default function LeftMenuSection(){
                         Plática 1
                     </p>
                     <br />
-                    <p>
+                    <p className={classes.title}>
                         Plática 2
                     </p>
                     <br />
-                    <p>
+                    <p className={classes.title}>
                         Plática 3
                     </p>
                     </span>
@@ -43,15 +43,15 @@ export default function LeftMenuSection(){
                 tabButton: "Summer 2020",
                 tabContent: (
                     <span>
-                    <p>
+                    <p className={classes.title}>
                         Plática 4
                     </p>
                     <br />
-                    <p>
+                    <p className={classes.title}>
                         Plática 5
                     </p>
                     <br />
-                    <p>
+                    <p className={classes.title}>
                         Plática 6
                     </p>
                     </span>
