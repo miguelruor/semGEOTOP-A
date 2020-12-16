@@ -15,14 +15,14 @@ export default function LeftMenuSection(){
     const classes = useStyles();
     return(
         <NavPills
-            color="rose"
+            color="transparent"
             horizontal={{
                 tabsGrid: { xs: 12, sm: 2, md: 2 },
                 contentGrid: { xs: 12, sm: 10, md: 10 }
             }}
             tabs={[
                 {
-                tabButton: "Fall 2020",
+                tabButton: "Purple",
                 tabContent: (
                     <span>
                     <p className={classes.title}>
@@ -36,11 +36,24 @@ export default function LeftMenuSection(){
                     <p className={classes.title}>
                         Plática 3
                     </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 4
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 5
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 6
+                    </p>
+                    <br />
                     </span>
                 )
                 },
                 {
-                tabButton: "Summer 2020",
+                tabButton: "Blue",
                 tabContent: (
                     <span>
                     <p className={classes.title}>
