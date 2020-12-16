@@ -47,7 +47,7 @@ export default function HomePage(props) {
           height: 400,
           color: "white"
         }}
-        //{...rest}
+        {...rest}
       />
       <Parallax filter image={backgroundImageHome}>
         <div className={classes.container}>
