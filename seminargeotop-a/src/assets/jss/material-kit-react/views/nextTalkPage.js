@@ -1,10 +1,32 @@
 import { container, title } from "../../material-kit-react.js";
 
-const landingPageStyle = {
+const NextTalkPageStyle = {
   container: {
     zIndex: "12",
     color: "#FFFFFF",
     ...container
+  },
+  containerContent: {
+    zIndex: "12",
+    color: "#FFFFFF",
+    paddingRight: "15px",
+    paddingTop: "50px",
+    paddingLeft: "15px",
+    marginRight: "auto",
+    marginLeft: "auto",
+    width: "100%",
+    "@media (min-width: 576px)": {
+      maxWidth: "540px"
+    },
+    "@media (min-width: 768px)": {
+      maxWidth: "720px"
+    },
+    "@media (min-width: 992px)": {
+      maxWidth: "960px"
+    },
+    "@media (min-width: 1200px)": {
+      maxWidth: "1640px"
+    }
   },
   title: {
     ...title,
@@ -33,4 +55,4 @@ const landingPageStyle = {
   }
 };
 
-export default landingPageStyle;
+export default NextTalkPageStyle;

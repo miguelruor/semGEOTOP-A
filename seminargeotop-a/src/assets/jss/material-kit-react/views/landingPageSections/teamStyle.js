@@ -1,5 +1,6 @@
-import { cardTitle, title } from "assets/jss/material-kit-react.js";
-import imagesStyle from "assets/jss/material-kit-react/imagesStyles.js";
+import { FullscreenExit } from "@material-ui/icons";
+import { cardTitle, title } from "../../../material-kit-react.js";
+import imagesStyle from "../../imagesStyles.js";
 
 const teamStyle = {
   section: {
@@ -41,6 +42,12 @@ const teamStyle = {
   },
   margin5: {
     margin: "5px"
+  },
+  nextTalk: {
+    backgroundColor: 'black',
+    textAlign: 'center',
+    padding: '10%',
+    border: 0,
   }
 };
 

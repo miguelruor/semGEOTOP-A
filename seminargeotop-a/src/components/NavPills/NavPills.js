@@ -16,12 +16,16 @@ import GridItem from "../Grid/GridItem.js" // "../components/Grid/GridItem.js";
 
 import styles from "../../assets/jss/material-kit-react/components/navPillsStyle.js";
 
+import imagenPrueba from "../../assets/img/faces/avatar.jpg";
+
+
 const useStyles = makeStyles(styles);
 
 export default function NavPills(props) {
   const [active, setActive] = React.useState(props.active);
   const handleChange = (event, active) => {
     setActive(active);
+    //alert('cambio');
   };
   const handleChangeIndex = index => {
     setActive(index);
@@ -76,13 +80,32 @@ export default function NavPills(props) {
         index={active}
         onChangeIndex={handleChangeIndex}
       >
-        {tabs.map((prop, key) => {
-          return (
-            <div className={classes.tabContent} key={key}>
-              {prop.tabContent}
-            </div>
-          );
-        })}
+          {tabs.map((prop, key) => {
+            return (
+              <div className={classes.tabContent} key={key}>
+                <GridContainer>
+                  <GridItem xs={12} sm={6} md={4} > 
+                    <img src={imagenPrueba}  width="280" height="300"/>
+                  </GridItem>
+                  <GridItem xs={12} sm={6} md={4} > 
+                    <img src={imagenPrueba}  width="280" height="300"/>
+                  </GridItem>
+                  <GridItem xs={12} sm={6} md={4} > 
+                    <img src={imagenPrueba}  width="280" height="300"/>
+                  </GridItem>
+                  <GridItem xs={12} sm={6} md={4} > 
+                    <img src={imagenPrueba}  width="280" height="300"/>
+                  </GridItem>
+                  <GridItem xs={12} sm={6} md={4} > 
+                    <img src={imagenPrueba}  width="280" height="300"/>
+                  </GridItem>
+                  <GridItem xs={12} sm={6} md={4} > 
+                    <img src={imagenPrueba}  width="280" height="300"/>
+                  </GridItem>
+                </GridContainer>
+              </div>
+            );
+          })}
       </SwipeableViews>
     </div>
   );
