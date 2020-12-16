@@ -69,6 +69,78 @@ export default function LeftMenuSection(){
                     </p>
                     </span>
                 )
+                },
+                {
+                tabButton: "Spring 2020",
+                tabContent: (
+                    <span>
+                    <p className={classes.title}>
+                        Plática 1
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 2
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 3
+                    </p>
+                    </span>
+                )
+                },
+                {
+                tabButton: "Fall 2019",
+                tabContent: (
+                    <span>
+                    <p className={classes.title}>
+                        Plática 1
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 2
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 3
+                    </p>
+                    </span>
+                )
+                },
+                {
+                tabButton: "Spring 2019",
+                tabContent: (
+                    <span>
+                    <p className={classes.title}>
+                        Plática 1
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 2
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 3
+                    </p>
+                    </span>
+                )
+                },
+                {
+                tabButton: "Fall 2018",
+                tabContent: (
+                    <span>
+                    <p className={classes.title}>
+                        Plática 1
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 2
+                    </p>
+                    <br />
+                    <p className={classes.title}>
+                        Plática 3
+                    </p>
+                    </span>
+                )
                 }
             ]}
             />

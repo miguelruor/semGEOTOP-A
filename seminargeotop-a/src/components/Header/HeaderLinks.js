@@ -61,6 +61,25 @@ export default function HeaderLinks(props) {
         </ListItem>
       </Link>
 
+      <ListItem className={classes.listItem}>
+        <CustomDropdown
+          noLiPadding
+          buttonText="Search talks by:"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          dropdownList={[
+            <Link to="/ListKeywords" className={classes.dropdownLink}>
+              Keywords
+            </Link>,
+            <Link to="/ListSpeakers" className={classes.dropdownLink}>
+              Speakers
+            </Link>
+          ]}
+        />
+      </ListItem>
+
       <Link to="/Subscribe" className={classes.link}>
         <ListItem className={classes.listItem}>
           <Button

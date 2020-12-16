@@ -21,10 +21,7 @@ import styles from "../../assets/jss/material-kit-react/views/landingPage.js";
 import backgroundImageHome from '../../assets/img/images/img2.jpg';
 
 // Sections for this page
-import NextTalkSection from "./Sections/PreviousTalksSection.js";
 import LeftMenuSection from "./Sections/LeftMenuSection.js";
-import ListKeywordsSection from "./Sections/ListKeywordsSection.js";
-import ListSpeakersSection from "./Sections/ListSpeakersSection.js";
 
 const dashboardRoutes = [];
 
