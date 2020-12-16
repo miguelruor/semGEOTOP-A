@@ -11,6 +11,8 @@ logs
 
 node_modules
 bower_components
+material-kit-react-master
+.eslintcache
 
 *.sublime*
 
@@ -21,3 +23,6 @@ sketch
 .eslintcache
 
 # End of https://www.toptal.com/developers/gitignore/api/react
+
+.eslintcache
+seminargeotop-a/.eslintcache

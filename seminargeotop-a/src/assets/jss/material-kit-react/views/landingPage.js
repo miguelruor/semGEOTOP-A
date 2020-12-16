@@ -1,4 +1,4 @@
-import { container, title } from "assets/jss/material-kit-react.js";
+import { container, title } from "../../material-kit-react.js";
 
 const landingPageStyle = {
   container: {
@@ -11,7 +11,7 @@ const landingPageStyle = {
     display: "inline-block",
     position: "relative",
     marginTop: "30px",
-    minHeight: "32px",
+    minHeight: "40px", //32px
     color: "#FFFFFF",
     textDecoration: "none"
   },
@@ -23,9 +23,9 @@ const landingPageStyle = {
   main: {
     background: "#FFFFFF",
     position: "relative",
-    zIndex: "3"
+    zIndex: "3",
   },
-  mainRaised: {
+  mainRaised: {    
     margin: "-60px 30px 0px",
     borderRadius: "6px",
     boxShadow:

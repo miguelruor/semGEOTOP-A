@@ -1,4 +1,4 @@
-import { title } from "assets/jss/material-kit-react.js";
+import { title } from "../../../material-kit-react.js";
 
 const workStyle = {
   section: {
@@ -14,7 +14,8 @@ const workStyle = {
   },
   description: {
     color: "#999",
-    textAlign: "center"
+    textAlign: "left",
+    marginLeft: "10px",
   },
   textCenter: {
     textAlign: "center"
