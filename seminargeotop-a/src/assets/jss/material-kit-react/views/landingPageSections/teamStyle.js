@@ -47,6 +47,7 @@ const teamStyle = {
     backgroundColor: 'black',
     textAlign: 'center',
     padding: '10%',
+    border: 0,
   }
 };
 

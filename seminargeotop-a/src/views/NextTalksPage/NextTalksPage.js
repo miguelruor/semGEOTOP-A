@@ -15,7 +15,7 @@ import Button from "../../components/CustomButtons/Button.js";
 import HeaderLinks from "../../components/Header/HeaderLinks.js";
 import Parallax from "../../components/Parallax/Parallax.js";
 
-import styles from "../../assets/jss/material-kit-react/views/landingPage.js";
+import styles from "../../assets/jss/material-kit-react/views/nextTalkPage.js";
 
 // Backgroud image
 import backgroundImageHome from '../../assets/img/images/img2.jpg';
@@ -60,8 +60,8 @@ export default function NextTalksPage(props) {
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)} >
-        <div className={classes.container}>
+      <div className={classNames(classes.main, classes.mainRaised)}  >
+        <div className={classes.containerContent} >
           <NextTalkSection />
           <StreamingTimeSection />
         </div>

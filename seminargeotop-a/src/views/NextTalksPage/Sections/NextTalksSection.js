@@ -49,10 +49,10 @@ export default function NextTalksSection(){
       );
     return(
         <GridContainer>
-            <GridItem xs={12} sm={12} md={12}><h1 className={classes.title}>Next Talks</h1></GridItem>
-            <GridItem xs={12} sm={12} md={6} className={classes.nextTalk}>
+            <GridItem xs={12} sm={12} md={5} className={classes.nextTalk}>
                     <img src={image1} className={imageClasses}/>
             </GridItem>
+            <GridItem xs={12} sm={12} md={1}/>
             <GridItem xs={12} sm={12} md={6}>
                 <GridContainer>
                     {talks.map(talk => (
