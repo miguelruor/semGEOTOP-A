@@ -24,6 +24,7 @@ import backgroundImageHome from '../../assets/img/images/img2.jpg';
 import ProductSection from "../../views/LandingPage/Sections/ProductSection.js";
 import TeamSection from "../../views/LandingPage/Sections/TeamSection.js";
 import NextTalkSection from "./Sections/NextTalksSection.js";
+import StreamingTimeSection from '../../views/LandingPage/Sections/StreamingTimeSection.js';
 
 const dashboardRoutes = [];
 
@@ -61,8 +62,8 @@ export default function NextTalksPage(props) {
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <ProductSection />
-          <TeamSection />
+          <NextTalkSection />
+          <StreamingTimeSection />
         </div>
       </div>
       <Footer />

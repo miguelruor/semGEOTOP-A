@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -19,10 +19,50 @@ import styles from "../../../assets/jss/material-kit-react/views/landingPageSect
 const useStyles = makeStyles(styles);
 
 export default function NextTalksSection(){
+
+    
+    const [talks, setTalks] = useState([
+        {
+            date: "January 22, 2021",
+            speaker: "Sergei Nechaev",
+            title: "Low-dimensional topology and non-Euclidean geometry in nature",
+            keywords: ["Statistical topology", "Low-dimensional topology", "unknotted long polymer chain", 
+            "DNA folding"],
+            abstract: 'In the talk I demonstrate on specific examples the emergence of a new actively '
+            + 'developing field, the "statistical topology", which unifies topology, noncommutative geometry, '
+            + 'probability theory and random walks. In particular, I plan to discuss the following interlinked '
+            + 'questions: (i) statistics of random walks on hyperbolic manifolds and graphs in connection with '
+            + 'the topology and fractal structure of unknotted long polymer chain confined in a bounding box and '
+            + 'hierarchical DNA folding, and (ii) optimal embedding in the three-dimensional space of '
+            + 'exponentially growing tissues, like, for example, the salad leaf, and how the hierarchical '
+            + 'ultrametric geometry emerges in that case.',
+            image: "../../../assets/img/images/sp40.jpg",
+        },
+    ]);
+
     const classes = useStyles();
     return(
         <GridContainer>
-            <GridItem xs={12} sm={12} md={2}>Next Talks</GridItem>
+            <GridItem xs={12} sm={12} md={12}><h1 className={classes.title}>Next Talks</h1></GridItem>
+            <GridItem xs={12} sm={12} ms={6}>
+                <div>
+                    <img src={talks[0].image}></img>
+                </div>
+            </GridItem>
+            <GridItem xs={12} sm={12} ms={6}>
+                <GridContainer>
+                    {talks.map(talk => (
+                        <>
+                        <GridItem xs={12} sm={12} md={12}><h1 className={classes.title}>{talk.speaker}</h1></GridItem>
+                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.date}</h4></GridItem>
+                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.title}</h4></GridItem>
+                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.abstract}</h4></GridItem>
+                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.keywords}</h4></GridItem>
+                        </>
+                    ))}
+                    
+                </GridContainer>
+            </GridItem>
         </GridContainer>
     );
 }
