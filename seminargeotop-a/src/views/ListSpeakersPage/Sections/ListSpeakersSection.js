@@ -17,6 +17,51 @@ const useStyles = makeStyles(styles);
 export default function ListSpeakersSection(){
     const classes = useStyles();
 
+    const [talks,setTalks] = useState([
+        {
+            surname: "Sergei Nechaev",
+            name: 
+            minitial:
+            years: 
+            idTalks:
+        },
+        {
+            surname: "Sergei Nechaev",
+            name: 
+            minitial:
+            years:
+            idTalks:
+        },
+        {
+            surname: "Sergei Nechaev",
+            name: 
+            minitial:
+            years:
+            idTalks:
+        },
+        {
+            surname: "Sergei Nechaev",
+            name: 
+            minitial:
+            years: 
+            idTalks:
+        },
+        {
+            surname: "Sergei Nechaev",
+            name: 
+            minitial:
+            years:
+            idTalks:
+        },
+        {
+            surname: "Sergei Nechaev",
+            name: 
+            minitial:
+            years:
+            idTalks:
+        },
+    ]);
+
     return(
         <p> Hola </p>
     );
