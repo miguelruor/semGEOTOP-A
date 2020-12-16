@@ -102,7 +102,7 @@ const headerLinksStyle = theme => ({
   },
   link: {
     textDecoration: "none",
-    color: 'white',
+    color: 'inherit',
   },
   dropdownLink: {
     "&,&:hover,&:focus": {
