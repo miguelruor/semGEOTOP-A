@@ -9,6 +9,11 @@ import {
   title
 } from "../../material-kit-react.js";
 
+import modalStyle from "../modalStyle.js";
+import tooltipsStyle from "../tooltipsStyle.js";
+import popoverStyles from "../popoverStyles.js";
+
+
 import imagesStyle from "../imagesStyles.js";
 
 
@@ -22,6 +27,7 @@ const navPillsStyle = theme => ({
   smallTitle: {
     color: "#6c757d"
   },
+  modalStyle,
   root: {
     marginTop: "20px",
     paddingLeft: "0",
@@ -149,7 +155,17 @@ const navPillsStyle = theme => ({
     "&,& *": {
       letterSpacing: "normal"
     }
-  }
+  },
+  tabContent: {
+    textAlign: 'center'
+  },
+  button: {
+    width:'50%',
+    marginLeft: "auto",
+    marginRight: "auto" 
+  },
+  ...tooltipsStyle,
+  ...popoverStyles
 });
 
 export default navPillsStyle;

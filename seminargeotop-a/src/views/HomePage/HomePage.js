@@ -44,7 +44,6 @@ export default function HomePage(props) {
         .get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-              alert(doc.data().keywords.join(", "));
             });
         })
         .catch(function(error) {
