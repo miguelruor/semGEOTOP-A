@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useState, useEffect} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -9,16 +9,11 @@ import NavPills from "../../../components/NavPills/NavPills.js";
 
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 
-import {db} from '../../../ConfigFirebase';
-
 const useStyles = makeStyles(styles);
 
 export default function LeftMenuSection(props){
     const classes = useStyles();
 
-    //Probar acceso a datos
-    //useEffect(() => alert(props.previousTalks['SPRING 2020'][0]['speaker']),[]);
-    
     return(
         <NavPills
             color="primary"

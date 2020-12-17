@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import classNames from "classnames";
 
+import {db} from '../../ConfigFirebase';
 
 // core components
 import Header from "../../components/Header/Header.js";
@@ -47,7 +48,75 @@ export default function PreviousTalksPage(){
         keywords: ['DNA 2','subject 2']
     }
 
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+
+    var speakers_aux = {};
+    var seasons_aux = {};
+
+    const [seasons, setSeasons] = useState({});
+
+    useEffect(async()=>{
+        await db.collection("speakers").get()
+        .then(function(querySnapshot){
+            querySnapshot.forEach(function(doc){
+                var idSpeaker = doc.id;
+                var mi = doc.data().middle_initial;
+
+                speakers_aux[idSpeaker] = doc.data().name + " " + 
+                    (mi != null ? mi : "") + " " + doc.data().surname;
+            });
+            //alert("Carga de speakers exitosa")
+        })
+        .catch(function(error){
+            alert("Cannot load some speaker");
+        });
+
+        await db.collection("talks").orderBy("date", "desc")
+        .get()
+        .then(function(querySnapshot){
+            querySnapshot.forEach(function(doc){
+                var sea = doc.data().season;
+                if(!(sea in seasons_aux)){
+                    seasons_aux[sea] = []
+                }
+                
+                const speakerID = doc.data().speaker;
+                const date = doc.data().date.toDate();
+
+                seasons_aux[sea].push(
+                    {
+                        speaker: speakers_aux[speakerID],
+                        title: doc.data().title,
+                        keywords: doc.data().keywords,
+                        date: month[date.getMonth()] + date.getDay().toString()+", " + date.getFullYear().toString(),
+                        abstract: doc.data().abstract,
+                        video: doc.data().video,
+                    }
+                );
+                //alert(speakerID)
+            });
+        })
+        .catch(function(error){
+            alert(error);
+        });
+        //alert(seasons_aux['SPRING 2020'][0].title);
+        setSeasons(seasons_aux);
+    },[]);
+
     const[previousTalks, setPreviousTalks] = useState({
+
         'FALL 2020': [example2, example, example2],
         'SUMMER 2020': [example, example2, example, example2, example],
         'SPRING 2020': [example2, example, example2],
@@ -85,7 +154,7 @@ export default function PreviousTalksPage(){
             </Parallax>
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
-                <LeftMenuSection previousTalks={previousTalks}/>
+                <LeftMenuSection previousTalks={seasons}/>
                 </div>
             </div>
             <Footer />
