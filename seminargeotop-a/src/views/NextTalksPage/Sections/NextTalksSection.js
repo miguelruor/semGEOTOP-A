@@ -17,7 +17,7 @@ import CardFooter from "../../../components/Card/CardFooter.js";
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 import image1 from "../../../assets/img/images/sp40.jpg";
 
-// import {db} from '../../../ConfigFirebase';
+import {db} from '../../../ConfigFirebase';
 
 const useStyles = makeStyles(styles);
 
