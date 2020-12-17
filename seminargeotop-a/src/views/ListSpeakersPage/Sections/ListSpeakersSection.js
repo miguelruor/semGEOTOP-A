@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -10,7 +10,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "../../../components/Grid/GridContainer.js";
 import GridItem from "../../../components/Grid/GridItem.js";
 
-import styles from "../../../assets/jss/material-kit-react/views/landingPage.js";
+import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
+
+import MenuOpen from '@material-ui/icons/MenuOpen';
 
 import {db} from '../../../ConfigFirebase';
 
@@ -18,10 +20,13 @@ const useStyles = makeStyles(styles);
 
 export default function ListSpeakersSection(){
     const classes = useStyles();
-    let speakers = [];
+    var speakers = [];
+    const [speakersList,setSpeakersList] = useState([]);
+    const [lettersInSurname, setLettersInSurname] = useState([]);
+    const [visitLetters, setVisitLetters] = useState({});
 
-    useEffect(() => {
-        db.collection("speakers").where("talks","!=", null)
+    useEffect(async () => {
+        await db.collection("speakers").where("talks","!=", null)
             .get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
@@ -47,32 +52,67 @@ export default function ListSpeakersSection(){
                             alert("Cannot load some talk");
                         });
                     }
-
                 }); // Se acaba el forEach
             })
             .catch(function(error) {
                 alert("Cannot load speakers");
             });
-      },[]);
+        speakers.sort(function(a,b){
+            if(a.surname > b.surname){
+                return 1;
+            }
+            if(a.surname < b.surname){
+                return -1;
+            }
+            return 0;
+        });
+        setSpeakersList(speakers);
+    },[]);
 
-    speakers.sort(function(a,b){
-        if(a.surname > b.surname){
-            return 1;
-        }
-        if(a.surname < b.surname){
-            return -1;
-        }
-        return 0;
-    });
+    // Al modificar speakers list con el contenido se actualiza
+    useEffect(() => {
+        handleLettersInSurname();
+    },[speakersList]);
+    
+      
+    // Función que revisa las letras que existen para hacer listas
+    function handleLettersInSurname(){
+        let letterSet = new Set();
+        let visitLetters = {};
+        speakersList
+        .forEach(speaker => {
+            letterSet.add(speaker.surname.charAt(0))
+            visitLetters[speaker.surname.charAt(0)] = false;
+        });
+        setLettersInSurname([...letterSet]);
+        setVisitLetters(visitLetters);        
+    }  
 
-    const Component = speakers.map(speaker => 
+    const listAlphabetical = lettersInSurname.map(letter => 
         <>
-        <h1 className={classes.title}> {speaker.surname + ", "+ speaker.name+ ", " + speaker.middle_inital
-            + '; '} </h1>
+            <li 
+                style={{cursor: 'pointer'}}> 
+                <h1 className={classes.title}> 
+                    {letter} <MenuOpen
+                    onClick={onclickLetter.bind(this, letter)}
+                    /> {visitLetters[letter] ? 'simon' : 'nel'}
+                </h1>
+            </li>
         </>
     );
 
+    function onclickLetter(letter){
+        let newVisit = visitLetters;
+        newVisit[letter] = !newVisit[letter];
+        setVisitLetters(newVisit);
+    }
+
     return(
-        Component
+        <div className={classes.section}> 
+            <h1 className={classes.title}> Speakers List </h1>
+            <ul>
+                {listAlphabetical}
+             </ul>       
+        </div>
     );
 }
