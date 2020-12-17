@@ -27,7 +27,7 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function PreviousTalksPage(){
+export default function ListSpeakersPage(){
     const classes = useStyles();
 
     return(
