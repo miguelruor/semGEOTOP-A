@@ -41,6 +41,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function NavPills(props) {
 
   const[talkModal,setTalkModal] = useState({'keywords': ['cool','col']});
+  const[talkTitle,setTalkTitle] = useState('');
+  const[talkDescription,setTalkDescription] = useState('');
+  const[talkVideo,setTalkVideo] = useState('');
+  const[talkKeywords,setTalkKeywords] = useState([]);
+
 
   const {content} = props;
   const keySeason =  Object.keys(content);
@@ -133,10 +138,14 @@ export default function NavPills(props) {
                         round 
                         color='primary' 
                         className={classes.button}
-                        onClick={() => {setClassicModal(true); setTalkModal(talk);}}
+                        onClick={() => {setClassicModal(true); 
+                            setTalkTitle(talk['title']);
+                            setTalkVideo(talk['video']);
+                            setTalkDescription(talk['abstract']);
+                        setTalkKeywords(talk['keywords']); }}
                       >
                           Details
-                        </Button> 
+                        </Button>
                       <Dialog
                         classes={{
                           root: classes.center,
@@ -169,19 +178,13 @@ export default function NavPills(props) {
                           id="classic-modal-slide-description"
                           className={classes.modalBody}
                         >
-                         <iframe 
-                          width="550" 
-                          height="400" 
-                          src={talkModal['video']} 
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowfullscreen/>
+                         <a href={talkVideo}>Link to the video</a>
                           <p>
-                            {talkModal['title']}
+                            {talkTitle}
                             <br/>
-                            {talkModal['abstract']}
+                            {talkDescription}
                             <br/>
-                            <b>Keywords: </b> {talkModal['keywords'].join(', ')}
+                            <b>Keywords: </b> {talkKeywords.join(', ')}
                           </p>
                         </DialogContent>
                         <DialogActions className={classes.modalFooter}>

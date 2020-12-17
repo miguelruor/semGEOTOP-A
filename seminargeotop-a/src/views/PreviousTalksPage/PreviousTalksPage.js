@@ -116,7 +116,6 @@ export default function PreviousTalksPage(){
     },[]);
 
     const[previousTalks, setPreviousTalks] = useState({
-
         'FALL 2020': [example2, example, example2],
         'SUMMER 2020': [example, example2, example, example2, example],
         'SPRING 2020': [example2, example, example2],
