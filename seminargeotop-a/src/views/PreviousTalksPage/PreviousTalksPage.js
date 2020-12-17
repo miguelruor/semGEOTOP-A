@@ -155,7 +155,7 @@ export default function PreviousTalksPage(){
             </Parallax>
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
-                <LeftMenuSection previousTalks={previousTalks}/>
+                <LeftMenuSection previousTalks={seasons}/>
                 </div>
             </div>
             <Footer />
