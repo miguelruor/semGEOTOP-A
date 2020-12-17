@@ -17,11 +17,58 @@ import CardFooter from "../../../components/Card/CardFooter.js";
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 import image1 from "../../../assets/img/images/sp40.jpg";
 
+// import {db} from '../../../ConfigFirebase';
+
 const useStyles = makeStyles(styles);
 
 export default function NextTalksSection(){
+    /**
+    speakers = []
+    useEffect(() => {
+        db.collection("speakers").where("talks","!=", null)
+            .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    speakers.push({
+                        name: doc.data().name,
+                        surname: doc.data().surname,
+                        middle_inital: doc.data().middle_inital,
+                        talks: doc.data().talks,
+                        years: [],
+                    });
 
-    
+                    let speakers_len = speakers.length
+                    let talks_len = speakers[speakers_len-1].talks.length
+
+                    for(let i=0; i<talks_len; i++){
+                        db.collection("talks").doc(speakers[speakers_len-1].talks[i].toString())
+                        .get()
+                        .then(function(doc){
+                            speakers[speakers_len-1].years
+                            .push(doc.data().date.toDate().getFullYear());
+                        })
+                        .catch(function(error){
+                            alert("Cannot load some talk");
+                        });
+                    }
+
+                }); // Se acaba el forEach
+            })
+            .catch(function(error) {
+                alert("Cannot load speakers");
+            });
+      },[]);
+
+    speakers.sort(function(a,b){
+        if(a.surname > b.surname){
+            return 1;
+        }
+        if(a.surname < b.surname){
+            return -1;
+        }
+        return 0;
+    });
+    **/
     const [talks, setTalks] = useState([
         {
             date: "January 22, 2021",
