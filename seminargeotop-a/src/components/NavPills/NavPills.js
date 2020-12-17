@@ -45,6 +45,7 @@ export default function NavPills(props) {
   const {content} = props;
   const keySeason =  Object.keys(content);
 
+
   const [active, setActive] = React.useState(props.active);
   const [classicModal, setClassicModal] = React.useState(false);
   const handleChange = (event, active) => {
@@ -114,7 +115,7 @@ export default function NavPills(props) {
             return (
               <div className={classes.tabContent} key={key}>
                 <GridContainer >
-                  {content[keySeason[key]].map(talk => {return (
+                  {keySeason.length > 0 && content[keySeason[key]].map(talk => {return (
                     <GridItem xs={12} sm={6} md={4} >
                     <Card plain>
                       <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
