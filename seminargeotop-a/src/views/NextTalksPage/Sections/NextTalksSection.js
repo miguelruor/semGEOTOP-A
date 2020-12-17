@@ -15,7 +15,7 @@ import CardBody from "../../../components/Card/CardBody.js";
 import CardFooter from "../../../components/Card/CardFooter.js";
 
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
-import image1 from "../../../assets/img/images/sp41.jpg";
+import image1 from "../../../assets/img/images/speakers/sp41.jpg";
 
 const useStyles = makeStyles(styles);
 
