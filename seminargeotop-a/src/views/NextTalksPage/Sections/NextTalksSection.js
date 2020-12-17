@@ -15,7 +15,7 @@ import CardBody from "../../../components/Card/CardBody.js";
 import CardFooter from "../../../components/Card/CardFooter.js";
 
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
-import image1 from "../../../assets/img/images/sp40.jpg";
+import image1 from "../../../assets/img/images/sp41.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -37,7 +37,7 @@ export default function NextTalksSection(){
             + 'hierarchical DNA folding, and (ii) optimal embedding in the three-dimensional space of '
             + 'exponentially growing tissues, like, for example, the salad leaf, and how the hierarchical '
             + 'ultrametric geometry emerges in that case.',
-            image: "../../../assets/img/images/sp40.jpg",
+            image: "../../../assets/img/images/sp41.jpg",
         },
     ]);
 
@@ -50,7 +50,7 @@ export default function NextTalksSection(){
     return(
         <GridContainer>
             <GridItem xs={12} sm={12} md={5} className={classes.nextTalk}>
-                    <img src={image1} className={imageClasses}/>
+              <img src={image1} className={imageClasses}/>
             </GridItem>
             <GridItem xs={12} sm={12} md={1}/>
             <GridItem xs={12} sm={12} md={6}>
@@ -58,13 +58,12 @@ export default function NextTalksSection(){
                     {talks.map(talk => (
                         <>
                         <GridItem xs={12} sm={12} md={12}><h1 className={classes.title}>{talk.speaker}</h1></GridItem>
-                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.date}</h4></GridItem>
-                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.title}</h4></GridItem>
-                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.abstract}</h4></GridItem>
-                        <GridItem xs={12} sm={12} md={12}><h4 className={classes.description}>{talk.keywords.join(", ")}</h4></GridItem>
+                        <GridItem xs={12} sm={12} md={12}><p className={classes.smallTitle}><b>{talk.date}</b></p></GridItem>
+                        <GridItem xs={12} sm={12} md={12}><p className={classes.smallTitle}><b>{"Title: "}</b>{talk.title}</p></GridItem>
+                        <GridItem xs={12} sm={12} md={12}><p className={classes.smallTitle}><b>{"Abstract: "}</b> {talk.abstract}</p></GridItem>
+                        <GridItem xs={12} sm={12} md={12}><p className={classes.smallTitle}><b>{"Keywords: "}</b> {talk.keywords.join(", ")}</p></GridItem>
                         </>
                     ))}
-                    
                 </GridContainer>
             </GridItem>
         </GridContainer>

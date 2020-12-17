@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -39,6 +39,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function NavPills(props) {
+
   const [active, setActive] = React.useState(props.active);
   const [classicModal, setClassicModal] = React.useState(false);
   const handleChange = (event, active) => {
