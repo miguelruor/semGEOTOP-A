@@ -10,7 +10,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "../../../components/Grid/GridContainer.js";
 import GridItem from "../../../components/Grid/GridItem.js";
 
-import styles from "../../../assets/jss/material-kit-react/views/landingPage.js";
+import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
+import MenuOpen from '@material-ui/icons/MenuOpen';
 
 import {db} from '../../../ConfigFirebase';
 
@@ -23,7 +24,10 @@ export default function ListSpeakersSection(){
     // del tipo [talk.id, surname, year]
 
     const [keywords, setKeywords] = useState({});
-
+    const [keywordsListByLetter,setKeywordsListByLatter] = useState([]);
+    const [lettersInKeywords, setLettersInKeywords] = useState([]);
+    const [visitLetters, setVisitLetters] = useState({});
+    
     useEffect(async()=>{
         await db.collection("talks").get()
         .then(function(querySnapshot){
@@ -37,7 +41,7 @@ export default function ListSpeakersSection(){
                     }
                     
                     keywords_aux[keys[i]].push(
-                        [doc.id, doc.data().surname, doc.data().date.toDate().getFullYear()]
+                        [doc.id, /*doc.data().surname*/'dato', doc.data().date.toDate().getFullYear()]
                         );   
                 }
             });
@@ -45,39 +49,92 @@ export default function ListSpeakersSection(){
         .catch(function(error){
             alert("Cannot load some talk")
         });
-        setKeywords(keywords_aux)
+        setKeywords(keywords_aux);
     },[]);
-    
-    let sorted_keywords = Object.keys(keywords).map(key => [key, keywords[key]]);
-    
-    // ordenar por keywords
-    sorted_keywords.sort(function(a,b){
-        if(a[0]>b[0]){
-            return 1;
-        }
-        if(a[0]<b[0]){
-            return -1;
-        }
-        return 0;
-    });
 
-    const Componente = sorted_keywords.map(element => {
-        <>
-        <h1 className={classes.title}> {element[0] + ": "} </h1>
+    // Al modificar speakers list con el contenido se actualiza
+    useEffect(() => {
+        handleLettersInKeyWords();
+    },[keywords]);
 
-        {
-        element[1].map(talk => {
-            <>
-            <h1 className={classes.title}>
-                {talk[1] + " " + talk[2] + ", "}
-            </h1>
-            </>
-        })
+    // Función que revisa las letras que existen para hacer listas
+    function handleLettersInKeyWords(){
+        let letterSet = new Set();
+        let visitLetters = {};
+        let keywordsWithLetter = {};
+        for(var k in keywords){
+            var letter = k.charAt(0);
+            letterSet.add(letter);
+            visitLetters[letter] = false;
+            keywordsWithLetter[letter] = [];
         }
-        </>
-    });
+        for(var k in keywords){
+            var letter = k.charAt(0);
+            var copy = {};
+            copy[k] = keywords[k];
+            keywordsWithLetter[letter].push(copy);
+        }
+        var auxLetterSet = [...letterSet];
+        auxLetterSet.sort();
+        setLettersInKeywords(auxLetterSet);
+        setVisitLetters(visitLetters);
+        setKeywordsListByLatter(keywordsWithLetter); 
+    }  
+
+    function listWithLetter(letter){
+    
+        const listItems = keywordsListByLetter[letter].map(keyword =>
+            <li> 
+            <h5 className={classes.title}> 
+                {Object.keys(keyword).map(function(k) {
+                    let result = k + 
+                        ' - ';
+                    let first = true;    
+                    {keyword[k].map(function(data) {
+                        result = result.concat((first ? '' : ',  ') + data[1] + ' ' + data[2]);
+                        first = false;
+                    })}
+                    return (result);})}
+            </h5>
+            </li>
+        );
+        
+        return (
+            <ul>
+                {listItems}
+            </ul>
+        );
+    }
+
+    function listAlphabetical(){
+        const listItems = lettersInKeywords.map(letter => 
+                <li 
+                    style={{cursor: 'pointer'}}> 
+                    <h1 className={classes.title}> 
+                        {letter} <MenuOpen
+                        onClick={onclickLetter.bind(this, letter)}
+                        /> {visitLetters[letter] ? listWithLetter(letter) : null}
+                    </h1>
+                </li>
+        );
+        return (
+            <ul>{listItems}</ul>
+        );
+    }
+
+    const [count, setCount] = useState(0);
+
+    function onclickLetter(letter){
+        let newVisit = visitLetters;
+        newVisit[letter] = !newVisit[letter];
+        setVisitLetters(newVisit);
+        setCount(count+1);
+    }
 
     return(
-        Componente
+        <div className={classes.section}> 
+            <h1 className={classes.title}> Keywords List </h1>
+            {listAlphabetical()}
+        </div>
     );
 }
