@@ -83,7 +83,8 @@ export default function PreviousTalksPage(){
             alert("Cannot load some speaker");
         });
 
-        await db.collection("talks").orderBy("date", "desc")
+        await db.collection("talks").where("date", '<', (new Date()).getTime())
+        .orderBy("date", "desc")
         .get()
         .then(function(querySnapshot){
             querySnapshot.forEach(function(doc){
@@ -100,7 +101,7 @@ export default function PreviousTalksPage(){
                         speaker: speakers_aux[speakerID],
                         title: doc.data().title,
                         keywords: doc.data().keywords,
-                        date: month[date.getMonth()] + date.getDay().toString()+", " + date.getFullYear().toString(),
+                        date: month[date.getMonth()] + " "+ date.getDay().toString()+", " + date.getFullYear().toString(),
                         abstract: doc.data().abstract,
                         video: doc.data().video,
                     }
@@ -111,7 +112,7 @@ export default function PreviousTalksPage(){
         .catch(function(error){
             alert(error);
         });
-        //alert(seasons_aux['SPRING 2020'][0].title);
+        //alert(seasons_aux['FALL 2020'][0].abstract);
         setSeasons(seasons_aux);
     },[]);
 
@@ -154,7 +155,7 @@ export default function PreviousTalksPage(){
             </Parallax>
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
-                <LeftMenuSection previousTalks={seasons}/>
+                <LeftMenuSection previousTalks={previousTalks}/>
                 </div>
             </div>
             <Footer />
