@@ -17,6 +17,20 @@ import styles from "../../../assets/scss/plugins/_plugin-react-slick.scss";
 
 const useStyles = makeStyles(styles);
 
+function CarouselImage(props) {
+  return (
+    <div>
+      <img 
+        src={props.src} 
+        alt="First slide" 
+        className="slick-image" />
+    </div>
+    <button className="square" onClick={props.src}>
+      {props.value}
+    </button>
+  );
+}
+
 export default function SectionCarousel() {
   const classes = useStyles();
   const settings = {
@@ -27,25 +41,33 @@ export default function SectionCarousel() {
     slidesToScroll: 1,
     autoplay: true
   };
+  function importAll(r) {
+    return r.keys().map(r);
+  }
+  const images = importAll(require.context('../../../assets/img/images/Pics_Geometry', true, /\.(png|jpe?g|svg)$/));
+  console.log(typeof(images));
+  console.log(images.length);
+  console.log(images[0].default);
+  console.log(image1);
   return (
     <Card carousel>
       <Carousel {...settings}>
         <div>
           <img 
-            src={image1} 
+            src={images[0].default} 
             alt="First slide" 
             className="slick-image" />
         </div>
         <div>
           <img
-            src={image2}
+            src={images[1].default}
             alt="Second slide"
             className="slick-image"
           />
         </div>
         <div>
           <img 
-            src={image3} 
+            src={images[2].default} 
             alt="Third slide" 
             className="slick-image" />
         </div>
