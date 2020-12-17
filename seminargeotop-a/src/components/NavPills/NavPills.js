@@ -112,7 +112,7 @@ export default function NavPills(props) {
                   <GridItem xs={12} sm={6} md={4} >
                     <Card plain>
                       <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
-                        <small className={classes.smallTitle} >Fecha</small>
+                        <small className={classes.smallTitle}>Fecha</small>
                       </h4>
                       <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                         <img src={imagenPrueba} alt="..." className={imageClasses} />
