@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -11,136 +11,38 @@ import styles from "../../../assets/jss/material-kit-react/views/landingPageSect
 
 const useStyles = makeStyles(styles);
 
-export default function LeftMenuSection(){
+export default function LeftMenuSection(props){
     const classes = useStyles();
+
+    //Probar acceso a datos
+    //useEffect(() => alert(props.previousTalks['SPRING 2020'][0]['speaker']),[]);
+    
     return(
         <NavPills
-            color="transparent"
+            color="primary"
             horizontal={{
                 tabsGrid: { xs: 12, sm: 2, md: 2 },
                 contentGrid: { xs: 12, sm: 10, md: 10 }
             }}
+            content={props.previousTalks}
             tabs={[
                 {
-                tabButton: "Purple",
-                tabContent: (
-                    <span>
-                    <p className={classes.title}>
-                        Plática 1
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 2
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 3
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 4
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 5
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 6
-                    </p>
-                    <br />
-                    </span>
-                )
+                    tabButton: "Fall 2020",
                 },
                 {
-                tabButton: "Blue",
-                tabContent: (
-                    <span>
-                    <p className={classes.title}>
-                        Plática 4
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 5
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 6
-                    </p>
-                    </span>
-                )
+                    tabButton: "SUMMER 2020",
                 },
                 {
-                tabButton: "Spring 2020",
-                tabContent: (
-                    <span>
-                    <p className={classes.title}>
-                        Plática 1
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 2
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 3
-                    </p>
-                    </span>
-                )
+                    tabButton: "Spring 2020",
                 },
                 {
-                tabButton: "Fall 2019",
-                tabContent: (
-                    <span>
-                    <p className={classes.title}>
-                        Plática 1
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 2
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 3
-                    </p>
-                    </span>
-                )
+                    tabButton: "Fall 2019",
                 },
                 {
-                tabButton: "Spring 2019",
-                tabContent: (
-                    <span>
-                    <p className={classes.title}>
-                        Plática 1
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 2
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 3
-                    </p>
-                    </span>
-                )
+                    tabButton: "Spring 2019",
                 },
                 {
-                tabButton: "Fall 2018",
-                tabContent: (
-                    <span>
-                    <p className={classes.title}>
-                        Plática 1
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 2
-                    </p>
-                    <br />
-                    <p className={classes.title}>
-                        Plática 3
-                    </p>
-                    </span>
-                )
+                    tabButton: "Fall 2018",
                 }
             ]}
             />
