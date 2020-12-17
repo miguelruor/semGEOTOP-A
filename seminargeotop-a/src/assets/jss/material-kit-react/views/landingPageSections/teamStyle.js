@@ -44,10 +44,11 @@ const teamStyle = {
     margin: "5px"
   },
   nextTalk: {
-    backgroundColor: 'black',
-    textAlign: 'center',
-    padding: '10%',
-    border: 0,
+    //backgroundColor: 'black',
+      paddingLeft: '70px',
+      paddingTop: '60px',
+    //padding: '10%',
+    //border: 0,
   }
 };
 

@@ -35,7 +35,7 @@ export default function PreviousTalksPage(){
         date : 'fecha dada',
         speaker: 'Pablo Meré',
         title: 'DNA topology',
-        video: 'https://www.youtube.com/embed/WWwMf8Nd494',
+        video: 'https://www.youtube.com/embed/0EqHqPvXcMU',
         keywords: ['DNA','subject']
     }
     const example2 = {
@@ -44,7 +44,7 @@ export default function PreviousTalksPage(){
         speaker: 'Pablo Meré 2',
         title: 'DNA topology 2',
         video: 'https://www.youtube.com/embed/zs8zmeWzC4M',
-        keywords: ['DNA','subject 2']
+        keywords: ['DNA 2','subject 2']
     }
 
     const[previousTalks, setPreviousTalks] = useState({

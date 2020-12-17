@@ -116,15 +116,15 @@ export default function NavPills(props) {
                     <GridItem xs={12} sm={6} md={4} >
                     <Card plain>
                       <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
-                        <small className={classes.smallTitle}>{content[keySeason[key]][0]['date']}, {keySeason[key]}</small>
+                        <small className={classes.smallTitle}>{talk['date']}</small>
                       </h4>
                       <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                         <img src={imagenPrueba} alt="..." className={imageClasses} />
                       </GridItem>
                       <h4 className={classes.cardTitle}>
-                        {content[keySeason[key]][0]['title']}
+                        {talk['title']}
                         <br />
-                        <small className={classes.smallTitle}>{content[keySeason[key]][0]['speaker']}</small>
+                        <small className={classes.smallTitle}>{talk['speaker']}</small>
                       </h4>
                       <Button 
                         round 
@@ -169,14 +169,14 @@ export default function NavPills(props) {
                          <iframe 
                           width="550" 
                           height="400" 
-                          src={content[keySeason[key]][0]['video']} 
+                          src={talk['video']} 
                           frameborder="0" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                           allowfullscreen/>
                           <p>
-                            {content[keySeason[key]][0]['abstract']} 
+                            {talk['title']}
                             <br/>
-                            <b>Keywords: </b> {content[keySeason[key]][0]['keywords'].join(', ')}
+                            <b>Keywords: </b> {talk['keywords'].join(', ')}
                           </p>
                         </DialogContent>
                         <DialogActions className={classes.modalFooter}>

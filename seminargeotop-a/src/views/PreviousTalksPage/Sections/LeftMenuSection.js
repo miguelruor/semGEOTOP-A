@@ -9,6 +9,8 @@ import NavPills from "../../../components/NavPills/NavPills.js";
 
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 
+import {db} from '../../../ConfigFirebase';
+
 const useStyles = makeStyles(styles);
 
 export default function LeftMenuSection(props){

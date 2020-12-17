@@ -41,7 +41,8 @@ export default function HeaderLinks(props) {
 
       <Link to="/NextTalks" className={classes.link}>
         <ListItem className={classes.listItem}>
-            <Button
+            <Button   
+              noLiPadding
               type = "button"
               color="transparent"
               round>

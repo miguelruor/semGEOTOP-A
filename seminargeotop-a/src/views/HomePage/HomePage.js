@@ -28,7 +28,7 @@ import backgroundImageHome from '../../assets/img/images/img1.jpg';
 import FutureTalksSection from '../../views/LandingPage/Sections/FutureTalksSection.js';
 import StreamingTimeSection from '../../views/LandingPage/Sections/StreamingTimeSection.js';
 
-//import {db} from '../../ConfigFirebase';
+import {db} from '../../ConfigFirebase';
 
 const dashboardRoutes = [];
 
