@@ -15,6 +15,7 @@ import styles from "../../../assets/jss/material-kit-react/views/landingPageSect
 import MenuOpen from '@material-ui/icons/MenuOpen';
 
 import {db} from '../../../ConfigFirebase';
+import { Speaker } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 
@@ -22,6 +23,7 @@ export default function ListSpeakersSection(){
     const classes = useStyles();
     var speakers = [];
     const [speakersList,setSpeakersList] = useState([]);
+    const [speakersListByLetter,setSpeakersListByLatter] = useState([]);
     const [lettersInSurname, setLettersInSurname] = useState([]);
     const [visitLetters, setVisitLetters] = useState({});
 
@@ -33,11 +35,11 @@ export default function ListSpeakersSection(){
                     speakers.push({
                         name: doc.data().name,
                         surname: doc.data().surname,
-                        middle_inital: doc.data().middle_inital,
+                        middle_initial: doc.data().middle_initial,
                         talks: doc.data().talks,
                         years: [],
                     });
-
+                    
                     let speakers_len = speakers.length
                     let talks_len = speakers[speakers_len-1].talks.length
 
@@ -79,40 +81,68 @@ export default function ListSpeakersSection(){
     function handleLettersInSurname(){
         let letterSet = new Set();
         let visitLetters = {};
+        let speakersWithLetter = {};
         speakersList
         .forEach(speaker => {
             letterSet.add(speaker.surname.charAt(0))
             visitLetters[speaker.surname.charAt(0)] = false;
+            speakersWithLetter[speaker.surname.charAt(0)] = [];
+        });
+        speakersList
+        .forEach(speaker => {
+            speakersWithLetter[speaker.surname.charAt(0)].push(speaker);
         });
         setLettersInSurname([...letterSet]);
-        setVisitLetters(visitLetters);        
+        setVisitLetters(visitLetters);
+        setSpeakersListByLatter(speakersWithLetter); 
     }  
 
-    const listAlphabetical = lettersInSurname.map(letter => 
-        <>
-            <li 
-                style={{cursor: 'pointer'}}> 
-                <h1 className={classes.title}> 
-                    {letter} <MenuOpen
-                    onClick={onclickLetter.bind(this, letter)}
-                    /> {visitLetters[letter] ? 'simon' : 'nel'}
-                </h1>
+    function listWithLetter(letter){
+    
+        const listItems = speakersListByLetter[letter].map(speaker =>
+            <li> 
+            <h5 className={classes.title}> 
+                {speaker.surname} {speaker.name} {speaker.middle_initial}
+            </h5>
             </li>
-        </>
-    );
+        );
+        
+        return (
+            <ul>
+                {listItems}
+            </ul>
+        );
+    }
+
+    function listAlphabetical(){
+        const listItems = lettersInSurname.map(letter => 
+                <li 
+                    style={{cursor: 'pointer'}}> 
+                    <h1 className={classes.title}> 
+                        {letter} <MenuOpen
+                        onClick={onclickLetter.bind(this, letter)}
+                        /> {visitLetters[letter] ? listWithLetter(letter) : null}
+                    </h1>
+                </li>
+        );
+        return (
+            <ul>{listItems}</ul>
+        );
+    }
+
+    const [count, setCount] = useState(0);
 
     function onclickLetter(letter){
         let newVisit = visitLetters;
         newVisit[letter] = !newVisit[letter];
         setVisitLetters(newVisit);
+        setCount(count+1);
     }
 
     return(
         <div className={classes.section}> 
             <h1 className={classes.title}> Speakers List </h1>
-            <ul>
-                {listAlphabetical}
-             </ul>       
+                {listAlphabetical()}
         </div>
     );
 }
