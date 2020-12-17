@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -40,8 +40,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function NavPills(props) {
 
+  const[talkModal,setTalkModal] = useState({'keywords': ['cool','col']});
+
   const {content} = props;
   const keySeason =  Object.keys(content);
+
 
   const [active, setActive] = React.useState(props.active);
   const [classicModal, setClassicModal] = React.useState(false);
@@ -112,7 +115,7 @@ export default function NavPills(props) {
             return (
               <div className={classes.tabContent} key={key}>
                 <GridContainer >
-                  {content[keySeason[key]].map(talk => {return (
+                  {keySeason.length > 0 && content[keySeason[key]].map(talk => {return (
                     <GridItem xs={12} sm={6} md={4} >
                     <Card plain>
                       <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
@@ -130,7 +133,7 @@ export default function NavPills(props) {
                         round 
                         color='primary' 
                         className={classes.button}
-                        onClick={() => setClassicModal(true)}
+                        onClick={() => {setClassicModal(true); setTalkModal(talk);}}
                       >
                           Details
                         </Button> 
@@ -169,14 +172,16 @@ export default function NavPills(props) {
                          <iframe 
                           width="550" 
                           height="400" 
-                          src={talk['video']} 
+                          src={talkModal['video']} 
                           frameborder="0" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                           allowfullscreen/>
                           <p>
-                            {talk['title']}
+                            {talkModal['title']}
                             <br/>
-                            <b>Keywords: </b> {talk['keywords'].join(', ')}
+                            {talkModal['abstract']}
+                            <br/>
+                            <b>Keywords: </b> {talkModal['keywords'].join(', ')}
                           </p>
                         </DialogContent>
                         <DialogActions className={classes.modalFooter}>
