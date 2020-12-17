@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -30,6 +30,32 @@ const useStyles = makeStyles(styles);
 export default function PreviousTalksPage(){
     const classes = useStyles();
 
+    const example = {
+        abstract: 'Descripcion',
+        date : 'fecha dada',
+        speaker: 'Pablo Meré',
+        title: 'DNA topology',
+        video: 'https://www.youtube.com/embed/WWwMf8Nd494',
+        keywords: ['DNA','subject']
+    }
+    const example2 = {
+        abstract: 'Descripcion 2',
+        date : 'fecha dada 2',
+        speaker: 'Pablo Meré 2',
+        title: 'DNA topology 2',
+        video: 'https://www.youtube.com/embed/zs8zmeWzC4M',
+        keywords: ['DNA','subject 2']
+    }
+
+    const[previousTalks, setPreviousTalks] = useState({
+        'FALL 2020': [example2, example, example2],
+        'SUMMER 2020': [example, example2, example, example2, example],
+        'SPRING 2020': [example2, example, example2],
+        'FALL 2019': [example, example2, example, example2, example],
+        'SPRING 2019': [example2, example, example2],
+        'FALL 2018': [example, example2, example, example2, example],
+    });
+
     return(
         <div>
             <Header
@@ -59,7 +85,7 @@ export default function PreviousTalksPage(){
             </Parallax>
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
-                <LeftMenuSection />
+                <LeftMenuSection previousTalks={previousTalks}/>
                 </div>
             </div>
             <Footer />
