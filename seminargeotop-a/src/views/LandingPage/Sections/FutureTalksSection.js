@@ -27,45 +27,45 @@ export default function FutureTalks(){
             date: "January 22",
             speaker: "Sergei Nechaev",
             tittle: "Interdisciplinary Scientific Center Poncelet (CNRS UMI 2615) Moscow - Russia"
-        },
+        },  
         {
             date: "February 5",
-            speaker: "Sergei Nechaev",
+            speaker: "Alice Patania",
             tittle: "Indiana University - USA"
         },
         {
             date: "February 19",
-            speaker: "Sergei Nechaev",
+            speaker: "Nina Otter",
             tittle: "UCLA - USA"
         },
         {
             date: "March 5",
-            speaker: "Sergei Nechaev",
+            speaker: "Davide Michieletto",
             tittle: "University of Edinburgh - UK"
         },
         {
             date: "March 19",
-            speaker: "Sergei Nechaev",
+            speaker: "Daniel Peralta-Salas",
             tittle: "ICMAT - Spain"
         },
         {
             date: "April 9",
-            speaker: "Sergei Nechaev",
+            speaker: "Stephen Childress",
             tittle: "NYU - USA"
         },
         {
             date: "April 23",
-            speaker: "Sergei Nechaev",
+            speaker: "Andrzej Stasiak",
             tittle: "University of Lausanne - Switzerland"
         },
         {
             date: "May 7",
-            speaker: "Sergei Nechaev",
+            speaker: "Aldo Guzmán-Sáenz",
             tittle: "IBM Thomas J. Watson Research Center - USA"
         },
         {
             date: "May 21",
-            speaker: "Sergei Nechaev",
+            speaker: "Caroline Uhler",
             tittle: "ETH Zurich - Switzerland"
         },
     ]);
