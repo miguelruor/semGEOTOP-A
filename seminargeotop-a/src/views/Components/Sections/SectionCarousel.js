@@ -5,21 +5,28 @@ import Carousel from "react-slick";
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import LocationOn from "@material-ui/icons/LocationOn";
+
 // core components
+import GridContainer from "../../../components/Grid/GridContainer.js";
+import GridItem from "../../../components/Grid/GridItem.js";
 import Card from "../../../components/Card/Card.js";
 
 import styles from "../../../assets/scss/plugins/_plugin-react-slick.scss";
 
-const useStyles = makeStyles(styles);
+//import styles from "../../../assets/jss/material-kit-react/views/componentsSections/carouselStyle.js";
+
+//const useStyles = makeStyles(styles);
 
 function renderCarouselImage(src) {
   return (
-    <div>
+    <>
+    <div style={{padding: "10px"}}>
       <img 
         src={src} 
         alt="First slide" 
         className="slick-image" />
     </div>
+    </>
   );
 }
 
@@ -36,15 +43,16 @@ function renderImages(images) {
 
 export default function SectionCarousel() {
   
-  const classes = useStyles();
+  //const classes = useStyles();
   
   const settings = {
     dots: true,
     infinite: true,
-    speed: 100,
+    speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true
+    slidesToScroll: 2,
+    autoplay: true,
+    variableWidth: true
   };
 
   // Funcion para leer todos los archivos de una carpeta (npm install --save-dev webpack@4.44.2 webpack-cli)
@@ -55,11 +63,19 @@ export default function SectionCarousel() {
   const topologyImages = importAll(require.context('../../../assets/img/images/Pics_Topology', true, /\.(png|jpe?g|svg)$/));
   
   return (
-    <Card carousel>
-      <Carousel {...settings}>
-        {renderImages(geometryImages)}
-        {renderImages(topologyImages)}
-      </Carousel>
-    </Card>
+    //<div className={classes.section}>
+    //  <div className={classes.container}>
+    //    <GridContainer>
+    //      <GridItem xs={12} sm={12} md={8} className={classes.marginAuto}>
+          <Card carousel>
+            <Carousel {...settings}>
+              {renderImages(geometryImages)}
+              {renderImages(topologyImages)}
+            </Carousel>
+          </Card>
+    //      </GridItem>
+    //    </GridContainer>
+    //  </div>
+    //</div>
   );
 }

@@ -32,7 +32,8 @@ export default function HeaderLinks(props) {
         <ListItem className={classes.listItem}>
           <Button 
           type="button" 
-          color="transparent"  
+          color="transparent"
+          className={classes.navLink}  
           round>
             Homepage 
           </Button>
@@ -45,6 +46,7 @@ export default function HeaderLinks(props) {
               noLiPadding
               type = "button"
               color="transparent"
+              className={classes.navLink}
               round>
                 Next Talks
             </Button>
@@ -56,6 +58,7 @@ export default function HeaderLinks(props) {
           <Button
           type = "button"
           color="transparent"
+          className={classes.navLink}
           round>
             Previous Talks
           </Button>
@@ -86,6 +89,7 @@ export default function HeaderLinks(props) {
           <Button
           type = "button"
           color="transparent"
+          className={classes.navLink}
           round>
             <a>Subscribe</a>
           </Button>
