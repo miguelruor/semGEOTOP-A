@@ -18,6 +18,7 @@ import HeaderLinks from "../../components/Header/HeaderLinks.js";
 import Parallax from "../../components/Parallax/Parallax.js";
 
 import styles from "../../assets/jss/material-kit-react/views/landingPage.js";
+//import styles from "./HomePageStyle.js";
 
 // Sections for this page
 import TeamSection from "../../views/LandingPage/Sections/TeamSection.js";
