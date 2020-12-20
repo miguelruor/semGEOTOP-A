@@ -7,25 +7,9 @@ import 'react-clock/dist/Clock.css'
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/workStyle.js";
 
+//https://material-ui.com/es/components/grid/
 import GridContainer from "../../../components/Grid/GridContainer.js";
 import GridItem from "../../../components/Grid/GridItem.js";
-
-const WIDTH = 80;
-
-const customTheme = {
-    background: 'transparent',
-    border: 'transparent',
-    center: 'transparent',
-    seconds: '#000',
-    minutes: '#000',
-    hour: '#000',
-    tick: '#000',
-    smallTickWidth: 1,
-    largeTickWidth: 1,
-    secondHandWidth: 1,
-    minuteHandWidth: 1,
-    hourHandWidth: 1,
-};
 
 const useStyles = makeStyles(styles);
 

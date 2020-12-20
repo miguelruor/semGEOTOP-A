@@ -47,6 +47,7 @@ export default function NextTalksSection(){
         classes.imgRoundedCircle,
         classes.imgFluid,
       );
+      
     return(
         <GridContainer>
             <GridItem xs={12} sm={12} md={5} className={classes.nextTalk}>
