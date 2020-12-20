@@ -87,6 +87,10 @@ export default function PreviousTalksPage(){
         .get()
         .then(function(querySnapshot){
             querySnapshot.forEach(function(doc){
+                if(doc.data().date.toDate() > new Date()){
+                    return;
+                }
+
                 var sea = doc.data().season;
                 if(!(sea in seasons_aux)){
                     seasons_aux[sea] = []
