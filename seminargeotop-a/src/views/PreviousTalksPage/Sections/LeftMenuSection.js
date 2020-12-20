@@ -23,26 +23,23 @@ export default function LeftMenuSection(props){
             }}
             content={props.previousTalks}
             tabs={[
-                /*{
-                    tabButton: "Spring 2021"
-                },*/
                 {
-                    tabButton: "Fall 2020",
+                    tabButton: "FALL 2020",
                 },
                 {
                     tabButton: "SUMMER 2020",
                 },
                 {
-                    tabButton: "Spring 2020",
+                    tabButton: "SPRING 2020",
                 },
                 {
-                    tabButton: "Fall 2019",
+                    tabButton: "FALL 2019",
                 },
                 {
-                    tabButton: "Spring 2019",
+                    tabButton: "SPRING 2019",
                 },
                 {
-                    tabButton: "Fall 2018",
+                    tabButton: "FALL 2018",
                 }
             ]}
             />

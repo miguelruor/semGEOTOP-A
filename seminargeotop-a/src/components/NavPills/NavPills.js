@@ -42,6 +42,7 @@ export default function NavPills(props) {
 
   const[talkModal,setTalkModal] = useState({'keywords': ['cool','col']});
   const[talkTitle,setTalkTitle] = useState('');
+  const[talkDate,setTalkDate] = useState('');
   const[talkDescription,setTalkDescription] = useState('');
   const[talkVideo,setTalkVideo] = useState('');
   const[talkKeywords,setTalkKeywords] = useState([]);
@@ -120,7 +121,9 @@ export default function NavPills(props) {
             return (
               <div className={classes.tabContent} key={key}>
                 <GridContainer >
-                  {keySeason.length > 0 && content[keySeason[key]].map(talk => {return (
+                  {keySeason.length > 0 && content[keySeason[key]].map(talk =>    
+                    {
+                    return (
                     <GridItem xs={12} sm={6} md={4} >
                     <Card plain>
                       <h4 className={classes.cardTitle} style={{textAlign:'left'}}>
@@ -142,7 +145,7 @@ export default function NavPills(props) {
                             setTalkTitle(talk['title']);
                             setTalkVideo(talk['video']);
                             setTalkDescription(talk['abstract']);
-                        setTalkKeywords(talk['keywords']); }}
+                            setTalkKeywords(talk['keywords']); }}
                       >
                           Details
                         </Button>
