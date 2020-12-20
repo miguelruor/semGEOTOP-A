@@ -19,6 +19,7 @@
     "react-scripts": "4.0.1",
     "react-slick": "^0.27.13",
     "react-swipeable-views": "^0.13.9",
+    "remove-accents": "^0.4.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

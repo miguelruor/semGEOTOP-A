@@ -2,7 +2,7 @@ import React from 'react';
 
 // Lines for Clock's
 import Clock from 'react-clock';
-import 'react-clock/dist/Clock.css'
+import 'react-clock/dist/Clock.css';
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "../../../assets/jss/material-kit-react/views/landingPageSections/workStyle.js";
