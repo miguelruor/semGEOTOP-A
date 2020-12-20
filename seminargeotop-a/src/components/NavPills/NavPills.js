@@ -181,13 +181,18 @@ export default function NavPills(props) {
                           id="classic-modal-slide-description"
                           className={classes.modalBody}
                         >
-                         <a href={talkVideo}>Link to the video</a>
                           <p>
-                            {talkTitle}
+                            <b>Speaker: </b> 
                             <br/>
-                            {talkDescription}
+                            <b>Title: </b>{talkTitle}
+                            <br/>
+                            <b>Date: </b>
                             <br/>
                             <b>Keywords: </b> {talkKeywords.join(', ')}
+                            <br/>
+                            <b>Abstract: </b>{talkDescription}
+                            <br/>
+                            <b>Video: </b> {({talkVideo} === null ? 'Not available yet.' : <a href={talkVideo}>Click here</a>)}
                           </p>
                         </DialogContent>
                         <DialogActions className={classes.modalFooter}>
