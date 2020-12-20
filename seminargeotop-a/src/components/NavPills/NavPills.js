@@ -192,7 +192,7 @@ export default function NavPills(props) {
                             <br/>
                             <b>Abstract: </b>{talkDescription}
                             <br/>
-                            <b>Video: </b> {({talkVideo} === null ? 'Not available yet.' : <a href={talkVideo}>Click here</a>)}
+                            <b>Video: </b> {talkVideo === null ? 'Not available yet.' : <a href={talkVideo}>Click here</a>}
                           </p>
                         </DialogContent>
                         <DialogActions className={classes.modalFooter}>
