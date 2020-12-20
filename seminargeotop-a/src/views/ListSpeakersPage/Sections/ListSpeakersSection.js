@@ -144,11 +144,10 @@ export default function ListSpeakersSection(){
         setVisitLetters(newVisit);
         setCount(count+1);
     }
-
+    //<h1 className={classes.title}> Speakers List </h1>
     return(
         <div className={classes.section}> 
-            <h1 className={classes.title}> Speakers List </h1>
-                {listAlphabetical()}
+            {listAlphabetical()}
         </div>
     );
 }
