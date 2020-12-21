@@ -63,13 +63,13 @@ export default function ListSpeakersSection(){
         let visitLetters = {};
         let keywordsWithLetter = {};
         for(var k in keywords){
-            var letter = k.charAt(0);
+            var letter = k.charAt(0).toUpperCase();
             letterSet.add(letter);
             visitLetters[letter] = false;
             keywordsWithLetter[letter] = [];
         }
         for(var k in keywords){
-            var letter = k.charAt(0);
+            var letter = k.charAt(0).toUpperCase() ;
             var copy = {};
             copy[k] = keywords[k];
             keywordsWithLetter[letter].push(copy);
@@ -85,22 +85,21 @@ export default function ListSpeakersSection(){
     
         const listItems = keywordsListByLetter[letter].map(keyword =>
             <li> 
-            <h5 className={classes.title}> 
+            <h5 style={{fontSize: '20px', fontStyle:'normal'}}> 
                 {Object.keys(keyword).map(function(k) {
-                    let result = k + 
-                        ' - ';
+                    let result = '';
                     let first = true;    
                     {keyword[k].map(function(data) {
                         result = result.concat((first ? '' : ',  ') + data[1] + ' ' + data[2]);
                         first = false;
                     })}
-                    return (result);})}
+                    return (<>{k} <br/> {result} </>);})}
             </h5>
             </li>
         );
         
         return (
-            <ul>
+            <ul style={{listStyleType:'none'}}>
                 {listItems}
             </ul>
         );
@@ -108,8 +107,8 @@ export default function ListSpeakersSection(){
 
     function listAlphabetical(){
         const listItems = lettersInKeywords.map(letter => 
-                <li 
-                    style={{cursor: 'pointer'}}> 
+                <li
+                    style={{cursor: 'pointer', listStyleType:'none'}} > 
                     <h1 className={classes.title}> 
                         {letter} <MenuOpen
                         onClick={onclickLetter.bind(this, letter)}
@@ -118,7 +117,7 @@ export default function ListSpeakersSection(){
                 </li>
         );
         return (
-            <ul>{listItems}</ul>
+            <ul style={{textAlign: 'left'}}>{listItems}</ul>
         );
     }
 
@@ -132,8 +131,7 @@ export default function ListSpeakersSection(){
     }
 
     return(
-        <div className={classes.section}> 
-            <h1 className={classes.title}> Keywords List </h1>
+        <div className={classes.section} > 
             {listAlphabetical()}
         </div>
     );
