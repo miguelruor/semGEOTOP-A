@@ -114,7 +114,7 @@ export default function ListSpeakersSection(){
         );
         
         return (
-            <ul>
+            <ul style={{listStyleType:'none'}}>
                 {listItems}
             </ul>
         );
@@ -132,7 +132,7 @@ export default function ListSpeakersSection(){
                 </li>
         );
         return (
-            <ul>{listItems}</ul>
+            <ul style={{textAlign: 'left'}}>{listItems}</ul>
         );
     }
 
