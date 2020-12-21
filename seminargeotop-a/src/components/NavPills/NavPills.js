@@ -45,6 +45,7 @@ export default function NavPills(props) {
   const[talkDate,setTalkDate] = useState('');
   const[talkDescription,setTalkDescription] = useState('');
   const[talkVideo,setTalkVideo] = useState('');
+  const[talkSpeaker,setTalkSpeaker] = useState('');
   const[talkKeywords,setTalkKeywords] = useState([]);
 
 
@@ -145,7 +146,9 @@ export default function NavPills(props) {
                             setTalkTitle(talk['title']);
                             setTalkVideo(talk['video']);
                             setTalkDescription(talk['abstract']);
-                            setTalkKeywords(talk['keywords']); }}
+                            setTalkKeywords(talk['keywords']);
+                            setTalkSpeaker(talk['speaker']); 
+                            setTalkDate(talk['date']); }}
                       >
                           Details
                         </Button>
@@ -182,11 +185,11 @@ export default function NavPills(props) {
                           className={classes.modalBody}
                         >
                           <p>
-                            <b>Speaker: </b> 
+                            <b>Speaker: </b> {talkSpeaker}
                             <br/>
                             <b>Title: </b>{talkTitle}
                             <br/>
-                            <b>Date: </b>
+                            <b>Date: </b>{talkDate}
                             <br/>
                             <b>Keywords: </b> {talkKeywords.join(', ')}
                             <br/>
