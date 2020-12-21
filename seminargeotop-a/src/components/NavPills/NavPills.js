@@ -111,6 +111,16 @@ export default function NavPills(props) {
       })}
     </Tabs>
   );
+
+  // Funcion para leer todos los archivos de una carpeta (npm install --save-dev webpack@4.44.2 webpack-cli)
+  function importAll(r) {
+    return r.keys().map(r);
+  }
+  const speakerImages = importAll(require.context('../../assets/img/images/speakers', false, /\.(png|jpe?g|svg)$/));
+  console.log(typeof(speakerImages[0].default))
+  console.log(typeof(speakerImages[1].default))
+  console.log(speakerImages[0].default)
+  
   const tabContent = (
     <div className={classes.contentWrapper}>
       <SwipeableViews
@@ -131,7 +141,7 @@ export default function NavPills(props) {
                         <small className={classes.smallTitle}>{talk['date']}</small>
                       </h4>
                       <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                        <img src={imagenPrueba} alt="..." className={imageClasses} />
+                        <img src={speakerImages[0].default} alt="..." className={imageClasses} />
                       </GridItem>
                       <h4 className={classes.cardTitle}>
                         {talk['title']}
