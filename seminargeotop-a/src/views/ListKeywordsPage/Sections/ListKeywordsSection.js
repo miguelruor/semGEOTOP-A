@@ -102,11 +102,17 @@ export default function     ListSpeakersSection(){
                 {Object.keys(keyword).map(function(k) {
                     let result = '';
                     let first = true;    
-                    {keyword[k].map(function(data) {
-                        result = result.concat((first ? '' : ',  ') + data[1] + ' ' + data[2]);
-                        first = false;
-                    })}
-                    return (<>{k} <br/> {result} </>);})}
+                    let pr = <a href='https://www.youtube.com/watch?v=yUOuJI_66Q0'> vale </a> 
+                    
+                    return (
+                       <> 
+                       {k} <br/>
+                       {keywords[k].map((data) =>{ 
+                        return (
+                            <>{first ? first=false : ',' } {data[1]} <a href={data[3]} target="_blank">{data[2]}</a>  </>
+                        )
+                       })} </>    
+                    )})}
             </h5>
             </li>
         );
@@ -121,10 +127,11 @@ export default function     ListSpeakersSection(){
     function listAlphabetical(){
         const listItems = lettersInKeywords.map(letter => 
                 <li
-                    style={{cursor: 'pointer', listStyleType:'none'}} > 
+                    style={{listStyleType:'none'}} > 
                     <h1 className={classes.title}> 
                         {letter} <MenuOpen
                         onClick={onclickLetter.bind(this, letter)}
+                        style={{cursor: 'pointer'}}
                         /> {visitLetters[letter] ? listWithLetter(letter) : null}
                     </h1>
                 </li>
