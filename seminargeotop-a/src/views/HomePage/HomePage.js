@@ -171,7 +171,7 @@ export default function HomePage(props) {
                     <br/>
                     <b>Abstract: </b>{talkDescription}
                     <br/>
-                    <a href={talkVideo}>Link to the video</a>
+                    <b>Video: </b> <a href={talkVideo}>Click here</a>
                   </p>
                 </DialogContent>
                 <DialogActions className={classes.modalFooter}>
