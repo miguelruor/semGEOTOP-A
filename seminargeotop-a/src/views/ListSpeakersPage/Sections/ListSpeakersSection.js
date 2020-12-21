@@ -1,4 +1,7 @@
 import React, {useEffect, useState} from "react";
+
+import removeAccents from "remove-accents"
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -75,7 +78,6 @@ export default function ListSpeakersSection(){
     useEffect(() => {
         handleLettersInSurname();
     },[speakersList]);
-    
       
     // Función que revisa las letras que existen para hacer listas
     function handleLettersInSurname(){
@@ -84,13 +86,17 @@ export default function ListSpeakersSection(){
         let speakersWithLetter = {};
         speakersList
         .forEach(speaker => {
-            letterSet.add(speaker.surname.charAt(0))
-            visitLetters[speaker.surname.charAt(0)] = false;
-            speakersWithLetter[speaker.surname.charAt(0)] = [];
+            const letter = removeAccents(speaker.surname.charAt(0));
+            console.log(letter);
+            letterSet.add(letter);
+            visitLetters[letter] = false;
+            speakersWithLetter[letter] = [];
         });
         speakersList
         .forEach(speaker => {
-            speakersWithLetter[speaker.surname.charAt(0)].push(speaker);
+            const letter = removeAccents(speaker.surname.charAt(0));
+            console.log(letter);
+            speakersWithLetter[letter].push(speaker);
         });
         setLettersInSurname([...letterSet]);
         setVisitLetters(visitLetters);
@@ -138,11 +144,10 @@ export default function ListSpeakersSection(){
         setVisitLetters(newVisit);
         setCount(count+1);
     }
-
+    //<h1 className={classes.title}> Speakers List </h1>
     return(
         <div className={classes.section}> 
-            <h1 className={classes.title}> Speakers List </h1>
-                {listAlphabetical()}
+            {listAlphabetical()}
         </div>
     );
 }
