@@ -100,6 +100,7 @@ export default function PreviousTalksPage(){
                 const date = doc.data().date.toDate();
                 seasons_aux[sea].push(
                     {
+                        speakerID: speakerID,
                         speaker: speakers_aux[speakerID],
                         title: doc.data().title,
                         keywords: doc.data().keywords,

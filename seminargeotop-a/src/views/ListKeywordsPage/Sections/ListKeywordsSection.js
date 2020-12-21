@@ -17,7 +17,7 @@ import {db} from '../../../ConfigFirebase';
 
 const useStyles = makeStyles(styles);
 
-export default function ListSpeakersSection(){
+export default function     ListSpeakersSection(){
     const classes = useStyles();
     let keywords_aux = {};
     // keywords_aux sera un diccionario indexado por todas las keywords que almacena listas de objetos 
@@ -27,11 +27,12 @@ export default function ListSpeakersSection(){
     const [keywordsListByLetter,setKeywordsListByLatter] = useState([]);
     const [lettersInKeywords, setLettersInKeywords] = useState([]);
     const [visitLetters, setVisitLetters] = useState({});
+    const [speakersById,setSpeakersById] = useState({});
     
     useEffect(async()=>{
         await db.collection("talks").get()
         .then(function(querySnapshot){
-            querySnapshot.forEach(function(doc){
+            querySnapshot.forEach(async function(doc){
                 let keys = doc.data().keywords;
                 let keys_len = keys.length;
                 for(let i=0; i<keys_len; i++){
@@ -41,8 +42,8 @@ export default function ListSpeakersSection(){
                     }
                     
                     keywords_aux[keys[i]].push(
-                        [doc.id, /*doc.data().surname*/'dato', doc.data().date.toDate().getFullYear()]
-                        );   
+                        [doc.id, 'ok'/*surname*/, doc.data().date.toDate().getFullYear()]
+                    );   
                 }
             });
         })

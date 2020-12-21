@@ -47,6 +47,7 @@ export default function NavPills(props) {
   const[talkVideo,setTalkVideo] = useState('');
   const[talkSpeaker,setTalkSpeaker] = useState('');
   const[talkKeywords,setTalkKeywords] = useState([]);
+  const[speakerID,setSpeakerID] = useState(0);
 
 
   const {content} = props;
@@ -158,7 +159,9 @@ export default function NavPills(props) {
                             setTalkDescription(talk['abstract']);
                             setTalkKeywords(talk['keywords']);
                             setTalkSpeaker(talk['speaker']); 
-                            setTalkDate(talk['date']); }}
+                            setTalkDate(talk['date']); 
+                            setSpeakerID(talk['speakerID']); 
+                          }}
                       >
                           Details
                         </Button>
