@@ -30,6 +30,18 @@ export default function     ListSpeakersSection(){
     const [speakersById,setSpeakersById] = useState({});
     
     useEffect(async()=>{
+        
+        var speakers = {};
+        await db.collection('speakers').get()
+        .then(function(querySnapshot){
+            querySnapshot.forEach(async function(doc){
+                speakers[doc.id] = doc.data().surname;
+            })
+        })
+        .catch(function(error){
+            alert("Some speakers cannot load.");
+        });
+
         await db.collection("talks").get()
         .then(function(querySnapshot){
             querySnapshot.forEach(async function(doc){
@@ -40,9 +52,9 @@ export default function     ListSpeakersSection(){
                     if(!(keys[i] in keywords_aux)){
                         keywords_aux[keys[i]] = []
                     }
-                    
+                    var idx = doc.data().speaker;
                     keywords_aux[keys[i]].push(
-                        [doc.id, 'ok'/*surname*/, doc.data().date.toDate().getFullYear()]
+                        [doc.id, speakers[idx], doc.data().date.toDate().getFullYear(), doc.data().video]
                     );   
                 }
             });

@@ -142,7 +142,7 @@ export default function NavPills(props) {
                         <small className={classes.smallTitle}>{talk['date']}</small>
                       </h4>
                       <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                        <img src={speakerImages[0].default} alt="..." className={imageClasses} />
+                        <img src={speakerImages[talk['speakerID']].default} alt="..." className={imageClasses} />
                       </GridItem>
                       <h4 className={classes.cardTitle}>
                         {talk['title']}
