@@ -30,6 +30,18 @@ export default function     ListSpeakersSection(){
     const [speakersById,setSpeakersById] = useState({});
     
     useEffect(async()=>{
+        
+        var speakers = {};
+        await db.collection('speakers').get()
+        .then(function(querySnapshot){
+            querySnapshot.forEach(async function(doc){
+                speakers[doc.id] = doc.data().surname;
+            })
+        })
+        .catch(function(error){
+            alert("Some speakers cannot load.");
+        });
+
         await db.collection("talks").get()
         .then(function(querySnapshot){
             querySnapshot.forEach(async function(doc){
@@ -40,9 +52,9 @@ export default function     ListSpeakersSection(){
                     if(!(keys[i] in keywords_aux)){
                         keywords_aux[keys[i]] = []
                     }
-                    
+                    var idx = doc.data().speaker;
                     keywords_aux[keys[i]].push(
-                        [doc.id, 'ok'/*surname*/, doc.data().date.toDate().getFullYear()]
+                        [doc.id, speakers[idx], doc.data().date.toDate().getFullYear(), doc.data().video]
                     );   
                 }
             });
@@ -90,11 +102,16 @@ export default function     ListSpeakersSection(){
                 {Object.keys(keyword).map(function(k) {
                     let result = '';
                     let first = true;    
-                    {keyword[k].map(function(data) {
-                        result = result.concat((first ? '' : ',  ') + data[1] + ' ' + data[2]);
-                        first = false;
-                    })}
-                    return (<>{k} <br/> {result} </>);})}
+                    
+                    return (
+                       <> 
+                       {k} <br/>
+                       {keywords[k].map((data) =>{ 
+                        return (
+                            <>{first ? first=false : ',' } {data[1]} <a href={data[3]} target="_blank">{data[2]}</a>  </>
+                        )
+                       })} </>    
+                    )})}
             </h5>
             </li>
         );
@@ -109,10 +126,11 @@ export default function     ListSpeakersSection(){
     function listAlphabetical(){
         const listItems = lettersInKeywords.map(letter => 
                 <li
-                    style={{cursor: 'pointer', listStyleType:'none'}} > 
+                    style={{listStyleType:'none'}} > 
                     <h1 className={classes.title}> 
                         {letter} <MenuOpen
                         onClick={onclickLetter.bind(this, letter)}
+                        style={{cursor: 'pointer'}}
                         /> {visitLetters[letter] ? listWithLetter(letter) : null}
                     </h1>
                 </li>

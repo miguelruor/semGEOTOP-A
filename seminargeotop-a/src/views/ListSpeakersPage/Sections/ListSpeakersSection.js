@@ -29,8 +29,23 @@ export default function ListSpeakersSection(){
     const [speakersListByLetter,setSpeakersListByLatter] = useState([]);
     const [lettersInSurname, setLettersInSurname] = useState([]);
     const [visitLetters, setVisitLetters] = useState({});
+    const [talks,setTalks] = useState({});
+
 
     useEffect(async () => {
+        var talks = {};
+        await db.collection("talks")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(async function(doc){
+                talks[doc.id] = doc.data();
+            })
+        })
+        .catch(function(error) {
+            alert("Cannot load some talk.");
+        });
+        setTalks(talks);
+
         await db.collection("speakers").where("talks","!=", null)
             .get()
             .then(function(querySnapshot) {
@@ -107,14 +122,23 @@ export default function ListSpeakersSection(){
     
         const listItems = speakersListByLetter[letter].map(speaker =>
             <li> 
-            <h5 className={classes.title}> 
+            <h5 className={classes.title} style={{fontSize: '20px', fontStyle:'normal'}}> 
                 {speaker.surname} {speaker.name} {speaker.middle_initial}
+                <br/>
+                {speaker.talks.map(function(talkID) {
+                  let first = true;
+                  return (
+                      <>
+                        {first ? first=false : ',' } <a href={talks[talkID].video} target="_blank">{talks[talkID].season}</a>
+                      </>
+                  );  
+                })}
             </h5>
             </li>
         );
         
         return (
-            <ul>
+            <ul style={{listStyleType:'none'}}>
                 {listItems}
             </ul>
         );
@@ -132,7 +156,7 @@ export default function ListSpeakersSection(){
                 </li>
         );
         return (
-            <ul>{listItems}</ul>
+            <ul style={{textAlign: 'left'}}>{listItems}</ul>
         );
     }
 
@@ -144,7 +168,6 @@ export default function ListSpeakersSection(){
         setVisitLetters(newVisit);
         setCount(count+1);
     }
-    //<h1 className={classes.title}> Speakers List </h1>
     return(
         <div className={classes.section}> 
             {listAlphabetical()}
