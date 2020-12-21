@@ -178,7 +178,7 @@ export default function NavPills(props) {
                           >
                             <Close className={classes.modalClose} />
                           </IconButton>
-                          <h4 className={classes.modalTitle}>Talk Details</h4>
+                          <h2 className={classes.modalTitle}>Talk Details</h2>
                         </DialogTitle>
                         <DialogContent
                           id="classic-modal-slide-description"
