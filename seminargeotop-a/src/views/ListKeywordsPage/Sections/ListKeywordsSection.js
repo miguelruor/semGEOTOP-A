@@ -102,7 +102,6 @@ export default function     ListSpeakersSection(){
                 {Object.keys(keyword).map(function(k) {
                     let result = '';
                     let first = true;    
-                    let pr = <a href='https://www.youtube.com/watch?v=yUOuJI_66Q0'> vale </a> 
                     
                     return (
                        <> 
