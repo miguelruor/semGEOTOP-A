@@ -17,7 +17,7 @@ import {db} from '../../../ConfigFirebase';
 
 const useStyles = makeStyles(styles);
 
-export default function ListSpeakersSection(){
+export default function     ListSpeakersSection(){
     const classes = useStyles();
     let keywords_aux = {};
     // keywords_aux sera un diccionario indexado por todas las keywords que almacena listas de objetos 
@@ -27,11 +27,24 @@ export default function ListSpeakersSection(){
     const [keywordsListByLetter,setKeywordsListByLatter] = useState([]);
     const [lettersInKeywords, setLettersInKeywords] = useState([]);
     const [visitLetters, setVisitLetters] = useState({});
+    const [speakersById,setSpeakersById] = useState({});
     
     useEffect(async()=>{
+        
+        var speakers = {};
+        await db.collection('speakers').get()
+        .then(function(querySnapshot){
+            querySnapshot.forEach(async function(doc){
+                speakers[doc.id] = doc.data().surname;
+            })
+        })
+        .catch(function(error){
+            alert("Some speakers cannot load.");
+        });
+
         await db.collection("talks").get()
         .then(function(querySnapshot){
-            querySnapshot.forEach(function(doc){
+            querySnapshot.forEach(async function(doc){
                 let keys = doc.data().keywords;
                 let keys_len = keys.length;
                 for(let i=0; i<keys_len; i++){
@@ -39,10 +52,10 @@ export default function ListSpeakersSection(){
                     if(!(keys[i] in keywords_aux)){
                         keywords_aux[keys[i]] = []
                     }
-                    
+                    var idx = doc.data().speaker;
                     keywords_aux[keys[i]].push(
-                        [doc.id, /*doc.data().surname*/'dato', doc.data().date.toDate().getFullYear()]
-                        );   
+                        [doc.id, speakers[idx], doc.data().date.toDate().getFullYear(), doc.data().video]
+                    );   
                 }
             });
         })
@@ -63,13 +76,13 @@ export default function ListSpeakersSection(){
         let visitLetters = {};
         let keywordsWithLetter = {};
         for(var k in keywords){
-            var letter = k.charAt(0);
+            var letter = k.charAt(0).toUpperCase();
             letterSet.add(letter);
             visitLetters[letter] = false;
             keywordsWithLetter[letter] = [];
         }
         for(var k in keywords){
-            var letter = k.charAt(0);
+            var letter = k.charAt(0).toUpperCase() ;
             var copy = {};
             copy[k] = keywords[k];
             keywordsWithLetter[letter].push(copy);
@@ -85,22 +98,26 @@ export default function ListSpeakersSection(){
     
         const listItems = keywordsListByLetter[letter].map(keyword =>
             <li> 
-            <h5 className={classes.title}> 
+            <h5 style={{fontSize: '20px', fontStyle:'normal'}}> 
                 {Object.keys(keyword).map(function(k) {
-                    let result = k + 
-                        ' - ';
+                    let result = '';
                     let first = true;    
-                    {keyword[k].map(function(data) {
-                        result = result.concat((first ? '' : ',  ') + data[1] + ' ' + data[2]);
-                        first = false;
-                    })}
-                    return (result);})}
+                    
+                    return (
+                       <> 
+                       {k} <br/>
+                       {keywords[k].map((data) =>{ 
+                        return (
+                            <>{first ? first=false : ',' } {data[1]} <a href={data[3]} target="_blank">{data[2]}</a>  </>
+                        )
+                       })} </>    
+                    )})}
             </h5>
             </li>
         );
         
         return (
-            <ul>
+            <ul style={{listStyleType:'none'}}>
                 {listItems}
             </ul>
         );
@@ -108,17 +125,18 @@ export default function ListSpeakersSection(){
 
     function listAlphabetical(){
         const listItems = lettersInKeywords.map(letter => 
-                <li 
-                    style={{cursor: 'pointer'}}> 
+                <li
+                    style={{listStyleType:'none'}} > 
                     <h1 className={classes.title}> 
                         {letter} <MenuOpen
                         onClick={onclickLetter.bind(this, letter)}
+                        style={{cursor: 'pointer'}}
                         /> {visitLetters[letter] ? listWithLetter(letter) : null}
                     </h1>
                 </li>
         );
         return (
-            <ul>{listItems}</ul>
+            <ul style={{textAlign: 'left'}}>{listItems}</ul>
         );
     }
 
@@ -132,8 +150,7 @@ export default function ListSpeakersSection(){
     }
 
     return(
-        <div className={classes.section}> 
-            <h1 className={classes.title}> Keywords List </h1>
+        <div className={classes.section} > 
             {listAlphabetical()}
         </div>
     );

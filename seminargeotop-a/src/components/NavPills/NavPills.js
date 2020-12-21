@@ -45,7 +45,9 @@ export default function NavPills(props) {
   const[talkDate,setTalkDate] = useState('');
   const[talkDescription,setTalkDescription] = useState('');
   const[talkVideo,setTalkVideo] = useState('');
+  const[talkSpeaker,setTalkSpeaker] = useState('');
   const[talkKeywords,setTalkKeywords] = useState([]);
+  const[speakerID,setSpeakerID] = useState(0);
 
 
   const {content} = props;
@@ -110,6 +112,13 @@ export default function NavPills(props) {
       })}
     </Tabs>
   );
+
+  // Funcion para leer todos los archivos de una carpeta (npm install --save-dev webpack@4.44.2 webpack-cli)
+  function importAll(r) {
+    return r.keys().map(r);
+  }
+  const speakerImages = importAll(require.context('../../assets/img/images/speakers', false, /\.(png|jpe?g|svg)$/));
+  
   const tabContent = (
     <div className={classes.contentWrapper}>
       <SwipeableViews
@@ -120,7 +129,7 @@ export default function NavPills(props) {
           {tabs.map((prop, key) => {
             return (
               <div className={classes.tabContent} key={key}>
-                <GridContainer >
+                <GridContainer alignItems="center">
                   {keySeason.length > 0 && content[keySeason[key]].map(talk =>    
                     {
                     return (
@@ -130,12 +139,12 @@ export default function NavPills(props) {
                         <small className={classes.smallTitle}>{talk['date']}</small>
                       </h4>
                       <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                        <img src={imagenPrueba} alt="..." className={imageClasses} />
+                        <img src={speakerImages[talk['speakerID']].default} alt="..." className={imageClasses} />
                       </GridItem>
                       <h4 className={classes.cardTitle}>
                         {talk['title']}
                         <br />
-                        <small className={classes.smallTitle}>{talk['speaker']}</small>
+                    <small className={classes.smallTitle}>{talk['speaker']}</small>
                       </h4>
                       <Button 
                         round 
@@ -145,7 +154,11 @@ export default function NavPills(props) {
                             setTalkTitle(talk['title']);
                             setTalkVideo(talk['video']);
                             setTalkDescription(talk['abstract']);
-                            setTalkKeywords(talk['keywords']); }}
+                            setTalkKeywords(talk['keywords']);
+                            setTalkSpeaker(talk['speaker']); 
+                            setTalkDate(talk['date']); 
+                            setSpeakerID(talk['speakerID']); 
+                          }}
                       >
                           Details
                         </Button>
@@ -175,24 +188,24 @@ export default function NavPills(props) {
                           >
                             <Close className={classes.modalClose} />
                           </IconButton>
-                          <h4 className={classes.modalTitle}>Talk Details</h4>
+                          <h2 className={classes.modalTitle}>Talk Details</h2>
                         </DialogTitle>
                         <DialogContent
                           id="classic-modal-slide-description"
                           className={classes.modalBody}
                         >
                           <p>
-                            <b>Speaker: </b> 
+                            <b>Speaker: </b> {talkSpeaker}
                             <br/>
                             <b>Title: </b>{talkTitle}
                             <br/>
-                            <b>Date: </b>
+                            <b>Date: </b>{talkDate}
                             <br/>
                             <b>Keywords: </b> {talkKeywords.join(', ')}
                             <br/>
                             <b>Abstract: </b>{talkDescription}
                             <br/>
-                            <b>Video: </b> {({talkVideo} === null ? 'Not available yet.' : <a href={talkVideo}>Click here</a>)}
+                            <b>Video: </b> {talkVideo === null ? 'Not available yet.' : <a href={talkVideo}>Click here</a>}
                           </p>
                         </DialogContent>
                         <DialogActions className={classes.modalFooter}>
