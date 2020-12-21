@@ -118,9 +118,6 @@ export default function NavPills(props) {
     return r.keys().map(r);
   }
   const speakerImages = importAll(require.context('../../assets/img/images/speakers', false, /\.(png|jpe?g|svg)$/));
-  console.log(typeof(speakerImages[0].default))
-  console.log(typeof(speakerImages[1].default))
-  console.log(speakerImages[0].default)
   
   const tabContent = (
     <div className={classes.contentWrapper}>
@@ -132,7 +129,7 @@ export default function NavPills(props) {
           {tabs.map((prop, key) => {
             return (
               <div className={classes.tabContent} key={key}>
-                <GridContainer >
+                <GridContainer alignItems="center">
                   {keySeason.length > 0 && content[keySeason[key]].map(talk =>    
                     {
                     return (
@@ -142,12 +139,12 @@ export default function NavPills(props) {
                         <small className={classes.smallTitle}>{talk['date']}</small>
                       </h4>
                       <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                        <img src={speakerImages[0].default} alt="..." className={imageClasses} />
+                        <img src={speakerImages[talk['speakerID']].default} alt="..." className={imageClasses} />
                       </GridItem>
                       <h4 className={classes.cardTitle}>
                         {talk['title']}
                         <br />
-                        <small className={classes.smallTitle}>{talk['speaker']}</small>
+                    <small className={classes.smallTitle}>{talk['speaker']}</small>
                       </h4>
                       <Button 
                         round 
